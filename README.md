@@ -32,4 +32,5 @@ Brief. [Mechanical/3D parts README](put link please), [Electrical README](put li
 - No AI
 
 ## TODO
+- Official Robot name
 - Things that should be done soon
