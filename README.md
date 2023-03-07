@@ -26,7 +26,7 @@ Put brief here
 - 3D print the wok
 
 ## Requirements
-Brief. [Mechanical/3D parts README](put link please), [Electrical README](put link please) and [Software README](put link please)
+Brief. [Mechanical/3D parts README](https://github.com/Pelochus/rockobot/printables/README.md), [Electrical README](https://github.com/Pelochus/rockobot/electronics/README.md) and [Software README](https://github.com/Pelochus/rockobot/arduino/README.md)
 - Put generic / basic requirements here
 - Decent repairability (use screws, connectors instead of soldering)
 
