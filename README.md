@@ -22,9 +22,6 @@ Put brief here
 - Arduino IDE
 - Ultimaker Cura
 
-## Ideas
-- 3D print the wok
-
 ## Requirements
 Brief. [Mechanical/3D parts README](https://github.com/Pelochus/rockobot/tree/main/printables/), [Electrical README](https://github.com/Pelochus/rockobot/tree/main/electronics/) and [Software README](https://github.com/Pelochus/rockobot/tree/main/arduino/)
 - Put generic / basic requirements here
@@ -41,6 +38,9 @@ Brief. [Mechanical/3D parts README](https://github.com/Pelochus/rockobot/tree/ma
 
 ### Software Requirements
 - No AI
+
+## Ideas
+- 3D print the wok
 
 ## TODO
 - Official Robot name
