@@ -16,7 +16,7 @@ Put brief here
 - Screwdrivers
 
 ### Electrical Tools
-. Soldering Iron
+- Soldering Iron
 
 ### Software
 - Arduino IDE
