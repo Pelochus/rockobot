@@ -1,47 +1,20 @@
-# Rockobot
-Put brief here
+# Electronics 
+This section will focus on the electronics side of Rockobot
 
-## Parts List
-### Mechanical Components
-- Motors
-
-### Electrical Components
+## Detailed Components
 - Arduino
 
-### 3D Printed Components
-- Adapted base for Arduino + Motors and Wheels
-
-## Tools
-### Mechanical Tools
-- Screwdrivers
-
-### Electrical Tools
+## Detailed Tools
 - Soldering Iron
 
-### Software
-- Arduino IDE
-- Ultimaker Cura
+## PCB
 
-## Ideas
-- 3D print the wok
+## Circuits
 
-## Requirements
-Brief. [Mechanical/3D parts README](put link please), [Electrical README](put link please) and [Software README](put link please)
-- Put generic / basic requirements here
-- Decent repairability (use screws, connectors instead of soldering)
-
-### Mechanical Requirements
-- Low center of gravity
-- TORQUE
-
-### Electrical Requirements
+## Detailed Requirements
 - Decent layout
 - PCB/Perfboard
 - Common Ground pls
 
-### Software Requirements
-- No AI
-
-## TODO
-- Official Robot name
-- Things that should be done soon
+## Ideas
+- 3D print the wok
