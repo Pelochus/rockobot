@@ -11,6 +11,17 @@ Put brief here
 ### 3D Printed Components
 - Adapted base for Arduino + Motors and Wheels
 
+## Tools
+### Mechanical Tools
+- Screwdrivers
+
+### Electrical Tools
+. Soldering Iron
+
+### Software
+- Arduino IDE
+- Ultimaker Cura
+
 ## Ideas
 - 3D print the wok
 
