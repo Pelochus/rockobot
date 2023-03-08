@@ -1,47 +1,48 @@
 # Rockobot
-Put brief here
+Battlebot made for SMP subject in Computer Science, UGR. This repository contains information about the mechanics, electronics and programming of the robot
+along with parts lists, tools used, requirements to fulfill, ideas and a knowledge database. For detailed information, see the detailed README for each subsection:
 
-## Parts List
-### Mechanical Components
-- Motors
+- [Mechanics/3D Printables](https://github.com/Pelochus/rockobot/tree/main/printables/)
+- [Electronics](https://github.com/Pelochus/rockobot/tree/main/electronics/)
+- [Arduino/Software](https://github.com/Pelochus/rockobot/tree/main/arduino/)
 
-### Electrical Components
-- Arduino
+## Index
+### Mechanics/3D Printables
 
-### 3D Printed Components
-- Adapted base for Arduino + Motors and Wheels
+1. [Components]()
+2. [Tools]()
+3. [Requirements]()
+4. [3D designs]()
+5. [Enhancing 3D prints strength]()
+6. [Mechanical designs]()
+7. [Ideas]()
+8. [Knowledge Base]()
 
-## Tools
-### Mechanical Tools
-- Screwdrivers
+### Electronics
 
-### Electrical Tools
-- Soldering Iron
+1. [Components]()
+2. [Tools]()
+3. [Requirements]()
+4. [PCB]()
+5. [Circuits]()
+6. [Ideas]()
+7. [Knowledge Base]()
 
-### Software
-- Arduino IDE
-- Ultimaker Cura
+### Arduino/Software
 
-## Requirements
-Brief. [Mechanical/3D parts README](https://github.com/Pelochus/rockobot/tree/main/printables/), [Electrical README](https://github.com/Pelochus/rockobot/tree/main/electronics/) and [Software README](https://github.com/Pelochus/rockobot/tree/main/arduino/)
+1. [Components]()
+2. [Tools]()
+3. [Requirements]()
+4. [Functions]()
+5. [Other subsection]()
+6. [Ideas]()
+7. [Knowledge Base]()
+
+## Generic Requirements
 - Put generic / basic requirements here
 - Decent repairability (use screws, connectors instead of soldering)
-
-### Mechanical Requirements
-- Low center of gravity
-- TORQUE
-
-### Electrical Requirements
-- Decent layout
-- PCB/Perfboard
-- Common Ground pls
-
-### Software Requirements
-- No AI
-
-## Ideas
-- 3D print the wok
 
 ## TODO
 - Official Robot name
 - Things that should be done soon
+- Reorganize each parts lists with a table, including units
