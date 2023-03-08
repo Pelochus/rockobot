@@ -1,47 +1,27 @@
-# Rockobot
-Put brief here
+# Software
+This section will focus on the software side of Rockobot
 
-## Parts List
-### Mechanical Components
-- Motors
+## Detailed Components
+- Arduino MEGA 2560
 
-### Electrical Components
-- Arduino
-
-### 3D Printed Components
-- Adapted base for Arduino + Motors and Wheels
-
-## Tools
-### Mechanical Tools
-- Screwdrivers
-
-### Electrical Tools
-- Soldering Iron
-
-### Software
+## Detailed Tools
+- Computer
+- USB-B to USB-A
 - Arduino IDE
-- Ultimaker Cura
+
+## Detailed Requirements
+- Modular software
+- Clean code
+- Focus on optimisation
+
+## Functions
+
+## Any other software subsection worth mentioning (delete if not applicable)
 
 ## Ideas
-- 3D print the wok
+- Switch between IR controlled mode and autonomous mode:
+    - Wait for an input at setup with 2 buttons, one for each mode, in loop function, call either autonomous or controlled mode
+    - Make the input a key, similar to a car
 
-## Requirements
-Brief. [Mechanical/3D parts README](put link please), [Electrical README](put link please) and [Software README](put link please)
-- Put generic / basic requirements here
-- Decent repairability (use screws, connectors instead of soldering)
-
-### Mechanical Requirements
-- Low center of gravity
-- TORQUE
-
-### Electrical Requirements
-- Decent layout
-- PCB/Perfboard
-- Common Ground pls
-
-### Software Requirements
-- No AI
-
-## TODO
-- Official Robot name
-- Things that should be done soon
+## Knowledge Base
+[Arduino Docs](https://docs.arduino.cc/)

@@ -1,47 +1,41 @@
-# Rockobot
-Put brief here
+# Printables and Mechanics
+This section will focus on the printables and mechanics side of Rockobot
 
-## Parts List
-### Mechanical Components
+## Detailed Components
 - Motors
+- 3D printing filament, including:
+    - PLA+
+    - PETG
+    - TPU
+-
 
-### Electrical Components
-- Arduino
-
-### 3D Printed Components
-- Adapted base for Arduino + Motors and Wheels
-
-## Tools
-### Mechanical Tools
+## Detailed Tools
 - Screwdrivers
+- Screws
+- 3D printers:
+    - Ender 3 V2
+    - Elegoo Neptune 2
 
-### Electrical Tools
-- Soldering Iron
+## Detailed Requirements
+- Get as close as possible to the 4 kg limit
+- Make it near as big as the limit (350x350 mm)
+- Low center of gravity, high stability
+- Good traction, no slippery wheels
+- High Torque, speed is not that important
+- High resistance parts, intelligently print parts as durable as possible (high temps, low speeds, better materials, intelligent designs)
 
-### Software
-- Arduino IDE
-- Ultimaker Cura
+## 3D designs
+Info about designs, pictures, why it was desgined that way
+
+## Enhancing 3D prints strength
+Info about how was each part printed, which temps, fan speeds, overall speeds, walls used, infill or any other tricks used for strengthening
+
+## Mechanical designs
+Info about how motors where connected to the battlebot, how torque was improved...
 
 ## Ideas
 - 3D print the wok
 
-## Requirements
-Brief. [Mechanical/3D parts README](put link please), [Electrical README](put link please) and [Software README](put link please)
-- Put generic / basic requirements here
-- Decent repairability (use screws, connectors instead of soldering)
-
-### Mechanical Requirements
-- Low center of gravity
-- TORQUE
-
-### Electrical Requirements
-- Decent layout
-- PCB/Perfboard
-- Common Ground pls
-
-### Software Requirements
-- No AI
-
-## TODO
-- Official Robot name
-- Things that should be done soon
+## Knowledge Base
+[3D printing Tricks](https://youtu.be/krrqydtneO0)
+[Strengthening through texturing](https://youtu.be/3-ygdNQThAs)
