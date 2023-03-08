@@ -7,11 +7,12 @@ This section will focus on the printables and mechanics side of Rockobot
     - PLA+
     - PETG
     - TPU
--
+- Screws
+- Threaded Inserts?
+- Nuts?
 
 ## Detailed Tools
 - Screwdrivers
-- Screws
 - 3D printers:
     - Ender 3 V2
     - Elegoo Neptune 2
@@ -35,7 +36,10 @@ Info about how motors where connected to the battlebot, how torque was improved.
 
 ## Ideas
 - 3D print the wok
+- Think about an easy way of adding weigh to the robot. This is in order to get as close as possible to the 4kg limit, without surpassing it before final design.
 
 ## Knowledge Base
-[3D printing Tricks](https://youtu.be/krrqydtneO0)
-[Strengthening through texturing](https://youtu.be/3-ygdNQThAs)
+- [3D printing Tricks](https://youtu.be/krrqydtneO0)
+- [Strengthening through texturing](https://youtu.be/3-ygdNQThAs)
+- [Maker's Muse Mini BattleBot as inspiration](https://www.youtube.com/watch?v=BvNRtRuOALw)
+- [Improved version of previous Mini BattleBot](https://www.youtube.com/watch?v=YWOqAwXmvJU)
