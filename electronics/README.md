@@ -1,13 +1,13 @@
 # Electronics 
 This section will focus on the electronics side of Rockobot
 
-## Detailed Components
+## Components
 - Arduino
 
-## Detailed Tools
+## Tools
 - Soldering Iron
 
-## Detailed Requirements
+## Requirements
 - Decent layout
 - PCB/Perfboard
 - Common Ground
