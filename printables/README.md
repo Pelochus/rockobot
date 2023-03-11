@@ -1,7 +1,7 @@
 # Printables and Mechanics
 This section will focus on the printables and mechanics side of Rockobot
 
-## Detailed Components
+## Components
 - Motors
 - 3D printing filament, including:
     - PLA+
@@ -11,13 +11,13 @@ This section will focus on the printables and mechanics side of Rockobot
 - Threaded Inserts?
 - Nuts?
 
-## Detailed Tools
+## Tools
 - Screwdrivers
 - 3D printers:
     - Ender 3 V2
     - Elegoo Neptune 2
 
-## Detailed Requirements
+## Requirements
 - Get as close as possible to the 4 kg limit
 - Make it near as big as the limit (350x350 mm)
 - Low center of gravity, high stability
@@ -40,6 +40,7 @@ Info about how motors where connected to the battlebot, how torque was improved.
 
 ## Knowledge Base
 - [3D printing Tricks](https://youtu.be/krrqydtneO0)
-- [Strengthening through texturing](https://youtu.be/3-ygdNQThAs)
+- [Strengthening through texturing by CNC Kitchen](https://youtu.be/3-ygdNQThAs)
 - [Maker's Muse Mini BattleBot as inspiration](https://www.youtube.com/watch?v=BvNRtRuOALw)
 - [Improved version of previous Mini BattleBot](https://www.youtube.com/watch?v=YWOqAwXmvJU)
+- [Transparent and strong PETG settings by CNC Kitchen](https://www.youtube.com/watch?v=9qb25Gi4Jv0)
