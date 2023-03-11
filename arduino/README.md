@@ -1,15 +1,15 @@
 # Software
 This section will focus on the software side of Rockobot
 
-## Detailed Components
+## Components
 - Arduino MEGA 2560
 
-## Detailed Tools
+## Tools
 - Computer
 - USB-B to USB-A
 - Arduino IDE
 
-## Detailed Requirements
+## Requirements
 - Modular software
 - Clean code
 - Focus on optimisation
