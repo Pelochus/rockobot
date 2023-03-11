@@ -9,43 +9,53 @@ along with parts lists, tools used, requirements to fulfill, ideas and a knowled
 # Index
 ### Mechanics/3D Printables
 
-1. [Components](https://github.com/Pelochus/rockobot/tree/main/printables/)
-2. [Tools]()
-3. [Requirements]()
-4. [3D designs]()
-5. [Enhancing 3D prints strength]()
-6. [Mechanical designs]()
-7. [Ideas]()
-8. [Knowledge Base]()
+1. [Components](https://github.com/Pelochus/rockobot/tree/main/printables#Components)
+2. [Tools](https://github.com/Pelochus/rockobot/tree/main/printables#Tools)
+3. [Requirements](https://github.com/Pelochus/rockobot/tree/main/printables#Requirements)
+4. [3D designs](https://github.com/Pelochus/rockobot/tree/main/printables#3D-designs)
+5. [Enhancing 3D prints strength](https://github.com/Pelochus/rockobot/tree/main/printables#Enhancing-3D-prints-strength)
+6. [Mechanical designs](https://github.com/Pelochus/rockobot/tree/main/printables#Mechanical-designs)
+7. [Ideas](https://github.com/Pelochus/rockobot/tree/main/printables#Ideas)
+8. [Knowledge Base](https://github.com/Pelochus/rockobot/tree/main/printables#Knowledge-base)
 
 ### Electronics
 
-1. [Components](https://github.com/Pelochus/rockobot/tree/main/electronics/)
-2. [Tools]()
-3. [Requirements]()
-4. [PCB]()
-5. [Circuits]()
-6. [Ideas]()
-7. [Knowledge Base]()
+1. [Components](https://github.com/Pelochus/rockobot/tree/main/electronics#Components)
+2. [Tools](https://github.com/Pelochus/rockobot/tree/main/electronics#Tools)
+3. [Requirements](https://github.com/Pelochus/rockobot/tree/main/electronics#Requirements)
+4. [PCB](https://github.com/Pelochus/rockobot/tree/main/electronics#PCB)
+5. [Circuits](https://github.com/Pelochus/rockobot/tree/main/electronics#Circuits)
+6. [Ideas](https://github.com/Pelochus/rockobot/tree/main/electronics#Ideas)
+7. [Knowledge Base](https://github.com/Pelochus/rockobot/tree/main/electronics#Knowledge-base)
 
 ### Arduino/Software
 
-1. [Components](https://github.com/Pelochus/rockobot/tree/main/arduino/)
-2. [Tools]()
-3. [Requirements]()
-4. [Functions]()
-5. [Other subsection]()
-6. [Ideas]()
-7. [Knowledge Base]()
+1. [Components](https://github.com/Pelochus/rockobot/tree/main/arduino#Components)
+2. [Tools](https://github.com/Pelochus/rockobot/tree/main/arduino#Tools)
+3. [Requirements](https://github.com/Pelochus/rockobot/tree/main/arduino#Requirements)
+4. [Functions](https://github.com/Pelochus/rockobot/tree/main/arduino#Functions)
+5. [Other subsection](https://github.com/Pelochus/rockobot/tree/main/arduino#TODO)
+6. [Ideas](https://github.com/Pelochus/rockobot/tree/main/arduino#Ideas)
+7. [Knowledge Base](https://github.com/Pelochus/rockobot/tree/main/arduino#Knowledge-base)
 
-## Generic Requirements
+## General Requirements
 - Put generic / basic requirements here
 - Decent repairability (use screws, connectors instead of soldering)
 - Make the robot as visually appealing as possible, this includes:
   - Cool shape
   - Some lighting
   - Reduce how many cables/screws are easy to see at a glance. This can be compensated by making them look cool/symmetrical
+- Investigate reinforced parts with steel/aluminium. CNC machining?
 
 ## TODO
 - Official Robot name
+- Add the following subsections:
+  - arduino/libraries
+  - electronics/pcb
+    - pcb/gerber
+  - electronics/circuits
+  - electronics/datasheets
+  - printables/gcodes
+  - printables/stl
+- (Optional) Add images folder and/or prototypes folder. This can include hand-made sketches photos
 - Reorganize each parts lists with a table, including units. Do on detailed READMEs
