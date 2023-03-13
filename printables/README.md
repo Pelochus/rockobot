@@ -2,17 +2,19 @@
 This section will focus on the printables and mechanics side of Rockobot
 
 ## Components
-- Motors
-- 3D printing filament, including:
-    - PLA+
-    - PETG
-    - TPU
-- Screws
-- Threaded Inserts?
-- Nuts?
+
+| Component             | Units | Notes                         |
+| --------------------- | ----- | ----------------------------- |
+| Motor                 | 4     | Extracted from old toy car    |
+| PLA+                  | 100 g | Weight is estimated           |
+| Transpartent PETG     | 100 g | Weight is estimated           |
+| TPU 95A               | 50 g  | Weight is estimated           |
+| M4 Screws             | 20    |                               |
+| M4 Threaded Insert    | 20    | Inox Steel                    |
 
 ## Tools
 - Screwdrivers
+- Soldering Iron (inserting threaded inserts in prints)
 - 3D printers:
     - Ender 3 V2
     - Elegoo Neptune 2
@@ -24,12 +26,24 @@ This section will focus on the printables and mechanics side of Rockobot
 - Good traction, no slippery wheels
 - High Torque, speed is not that important
 - High resistance parts, intelligently print parts as durable as possible (high temps, low speeds, better materials, intelligent designs)
+- Intelligently design parts for durability
 
 ## 3D designs
 Info about designs, pictures, why it was desgined that way
 
 ## Enhancing 3D prints strength
-Info about how was each part printed, which temps, fan speeds, overall speeds, walls used, infill or any other tricks used for strengthening
+To enhance 3D prints strength, there are various techniques and slicer settings to adjust. There is a [gcode](https://github.com/Pelochus/rockobot/tree/main/printables/gcodes) section where the gcodes of each part with the following settings are stored. **Unless otherwise specified these are the common settings**:
+- 220/250ºC Hotend and 65/70ºC Bed temperatures for PLA+/PETG respectively
+- 40 mm/s speed
+- 5 walls, 0.4 mm thickness per wall
+- Cubic Infill Type
+- Avoid supports if possible
+- Prints must be intelligently aligned with the axes so that the forces that will be applied are not ripping layers apart
+
+| Part              | Material   | Fan  | Infill | Support | Ironing | Extras       |
+| ----------------- | ---------- | ---- | ------ | ------- | ------- | ------------ |
+| Base              | PLA+       | 25%  | 30%    | No      | Yes     |              |
+| 2nd Layer         | PLA+       | 25%  | 40%    | Yes     | No      |              |
 
 ## Mechanical designs
 Info about how motors where connected to the battlebot, how torque was improved...

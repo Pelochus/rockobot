@@ -15,6 +15,11 @@ This section will focus on the software side of Rockobot
 - Focus on optimisation
 
 ## Functions
+```c++
+void foo(int var) {
+    return var;
+}
+```
 
 ## Any other software subsection worth mentioning (delete if not applicable)
 

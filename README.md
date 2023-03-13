@@ -39,13 +39,16 @@ along with parts lists, tools used, requirements to fulfill, ideas and a knowled
 7. [Knowledge Base](https://github.com/Pelochus/rockobot/tree/main/arduino#Knowledge-base)
 
 ## General Requirements
-- Put generic / basic requirements here
 - Decent repairability (use screws, connectors instead of soldering)
 - Make the robot as visually appealing as possible, this includes:
   - Cool shape
   - Some lighting
   - Reduce how many cables/screws are easy to see at a glance. This can be compensated by making them look cool/symmetrical
 - Investigate reinforced parts with steel/aluminium. CNC machining?
+- Take into account how enemy robots might attack and avoid it. For example:
+  - Confuse sensors to change how the robot acts
+  - Literally grab the robot and take it out the battle area
+  - Damage the robot
 
 ## TODO
 - Official Robot name
@@ -58,4 +61,3 @@ along with parts lists, tools used, requirements to fulfill, ideas and a knowled
   - printables/gcodes
   - printables/stl
 - (Optional) Add images folder and/or prototypes folder. This can include hand-made sketches photos
-- Reorganize each parts lists with a table, including units. Do on detailed READMEs
