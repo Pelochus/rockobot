@@ -1,5 +1,5 @@
 # Rockobot
-Battlebot made for SMP subject in Computer Science, UGR. This repository contains information about the mechanics, electronics and programming of the robot
+Battlebot made for SMP subject in Computer Engineering, UGR. This repository contains information about the mechanics, electronics and programming of the robot
 along with parts lists, tools used, requirements to fulfill, ideas and a knowledge database. This README serves as an index for each subsection (Mechanics, Electronics and Programming) and for some generic stuff. For detailed information, see the READMEs for each subsection:
 
 - [Mechanics/3D Printables](https://github.com/Pelochus/rockobot/tree/main/printables/)

@@ -7,7 +7,12 @@ This section will focus on the electronics side of Rockobot
 | Soldering Tin         | -     |                               |
 | Jumper wires          | 20    |                               |
 | 220 Ohms Resistors    | 10    |                               |
-| Motor Driver          | 2     | TODO Add motor driver name    |
+| Metallic Power Button | 1     | Red, with LEDs                |
+| RCWL-1601 US Sensor   | 4     | Very similar to HC-SR04       |
+| TCRT5000 Reflect IR   | 4     |                               |
+| JGA25-370 DC Motor    | 4     | 100 RPM @ 12V                 |
+| L289N Motor Driver    | 3     |                               |
+| StepDown Converter 5V | 5     | For safe powering Arduino     |
 | WS2812B Ring          | 1     | Decorative                    |
 
 ## Tools
