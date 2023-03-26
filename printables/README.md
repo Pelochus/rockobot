@@ -6,9 +6,9 @@ This section will focus on the printables and mechanics side of Rockobot
 | Component             | Units | Notes                         |
 | --------------------- | ----- | ----------------------------- |
 | Motor                 | 4     | Extracted from old toy car    |
-| PLA+                  | 100 g | Weight is estimated           |
+| PLA+                  | 200 g | Weight is estimated           |
 | Transpartent PETG     | 100 g | Weight is estimated           |
-| TPU 95A               | 50 g  | Weight is estimated           |
+| TPU 95A               | 100 g | Weight is estimated           |
 | M4 Screws             | 20    |                               |
 | M4 Threaded Insert    | 20    | Inox Steel                    |
 
@@ -29,7 +29,7 @@ This section will focus on the printables and mechanics side of Rockobot
 - Intelligently design parts for durability
 
 ## 3D designs
-Info about designs, pictures, why it was desgined that way
+Info about designs, pictures, why it was designed that way
 
 ## Enhancing 3D prints strength
 To enhance 3D prints strength, there are various techniques and slicer settings to adjust. There is a [gcode](https://github.com/Pelochus/rockobot/tree/main/printables/gcodes) section where the gcodes of each part with the following settings are stored. **Unless otherwise specified these are the common settings**:
