@@ -13,15 +13,19 @@ This section will focus on the electronics side of Rockobot
 | JGA25-370 DC Motor    | 4     | 100 RPM @ 12V                 |
 | L289N Motor Driver    | 3     |                               |
 | StepDown Converter 5V | 5     | For safe powering Arduino     |
+| Accelerometer         | 1     | TODO: Maybe will not be added |
+| 1550mAh 14.8V Battery | 1     |                               |
 | WS2812B Ring          | 1     | Decorative                    |
 
 ## Tools
 - Soldering Iron
+- Balance Charger
 
 ## Requirements
 - Decent layout
 - PCB/Perfboard
 - Common Ground
+- Ability to connect a disconnect components, very useful for replacing and repairing
 
 ## PCB
 Information, design and photo of the PCB used
@@ -35,4 +39,4 @@ Schematics of independent circuits that deserve a subsection and a schematic of 
 - Include more than one infrarred sensor, for increased awareness of getting out of the designed battle area
 
 ## Knowledge Base
-[Important Knowledge](put link in here)
+[KiCad 7 Tutorial, from schematics to final PCB](https://www.youtube.com/watch?v=3FGNw28xBr0)
