@@ -8,7 +8,7 @@ This section will focus on the printables and mechanics side of Rockobot
 | Motor                 | 4     | Extracted from old toy car    |
 | PLA+                  | 200 g | Weight is estimated           |
 | Transpartent PETG     | 100 g | Weight is estimated           |
-| TPU 95A               | 100 g | Weight is estimated           |
+| TPU 95A               | 200 g | Weight is estimated           |
 | M4 Screws             | 20    |                               |
 | M4 Threaded Insert    | 20    | Inox Steel                    |
 
@@ -42,15 +42,16 @@ To enhance 3D prints strength, there are various techniques and slicer settings 
 
 | Part              | Material   | Fan  | Infill | Support | Ironing | Extras       |
 | ----------------- | ---------- | ---- | ------ | ------- | ------- | ------------ |
-| Base              | PLA+       | 25%  | 30%    | No      | Yes     |              |
-| 2nd Layer         | PLA+       | 25%  | 40%    | Yes     | No      |              |
+| Fillable Base     | PLA+       | 25%  | 30%    | No      | Yes     |              |
+| Motors Base       | PLA+       | 25%  | 40%    | Yes     | No      |              |
+| Electronics Base  | PLA+       | 25%  | 40%    | Yes     | No      |              |
 
 There were some TPU prints (tracks). The settings where these:
 - 225ºC Hotend / 55ºC Bed
 - 30 mm/s speed
 - 3 walls, 0.4 mm thickness per wall
 - Grid Infill Type / 10% infill
-- 75% Fan
+- 80% Fan
 - 0.16 mm layer height
 
 ## Mechanical designs
@@ -61,6 +62,7 @@ Info about how motors where connected to the battlebot, how torque was improved.
 - Think about an easy way of adding weigh to the robot. This is in order to get as close as possible to the 4kg limit, without surpassing it before final design.
 
 ## Knowledge Base
+- [Tank where the tracks design was extracted](https://www.thingiverse.com/thing:1240754)
 - [3D printing Tricks](https://youtu.be/krrqydtneO0)
 - [Strengthening through texturing by CNC Kitchen](https://youtu.be/3-ygdNQThAs)
 - [Maker's Muse Mini BattleBot as inspiration](https://www.youtube.com/watch?v=BvNRtRuOALw)
