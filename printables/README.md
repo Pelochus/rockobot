@@ -45,6 +45,14 @@ To enhance 3D prints strength, there are various techniques and slicer settings 
 | Base              | PLA+       | 25%  | 30%    | No      | Yes     |              |
 | 2nd Layer         | PLA+       | 25%  | 40%    | Yes     | No      |              |
 
+There were some TPU prints (tracks). The settings where these:
+- 225ºC Hotend / 55ºC Bed
+- 30 mm/s speed
+- 3 walls, 0.4 mm thickness per wall
+- Grid Infill Type / 10% infill
+- 75% Fan
+- 0.16 mm layer height
+
 ## Mechanical designs
 Info about how motors where connected to the battlebot, how torque was improved...
 
