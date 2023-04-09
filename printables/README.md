@@ -29,22 +29,39 @@ This section will focus on the printables and mechanics side of Rockobot
 - Intelligently design parts for durability
 
 ## 3D designs
-Info about designs, pictures, why it was designed that way
+### Rockobot Core
+Explain each floor and the added modules (gearbox, shield...)
+
+#### Fillable Base
+
+#### Motors Floor
+
+#### Electronics Floor
+
+#### Top Layer
+
+#### Rockins
+
+### Rockobot Gearbox
+
+### Rockobot Shield
 
 ## Enhancing 3D prints strength
 To enhance 3D prints strength, there are various techniques and slicer settings to adjust. There is a [gcode](https://github.com/Pelochus/rockobot/tree/main/printables/gcodes) section where the gcodes of each part with the following settings are stored. **Unless otherwise specified these are the common settings**:
 - 220/250ºC Hotend and 65/70ºC Bed temperatures for PLA+/PETG respectively
-- 40 mm/s speed
+- 50 mm/s speed
 - 5 walls, 0.4 mm thickness per wall
-- Cubic Infill Type
+- Cubic/Cubic Subdivision/Grid Infill Type
 - Avoid supports if possible
 - Prints must be intelligently aligned with the axes so that the forces that will be applied are not ripping layers apart
 
 | Part              | Material   | Fan  | Infill | Support | Ironing | Extras       |
 | ----------------- | ---------- | ---- | ------ | ------- | ------- | ------------ |
-| Fillable Base     | PLA+       | 25%  | 30%    | No      | Yes     |              |
-| Motors Base       | PLA+       | 25%  | 40%    | Yes     | No      |              |
-| Electronics Base  | PLA+       | 25%  | 40%    | Yes     | No      |              |
+| Fillable Base     | PLA+       | 25%  | 25%    | No      | Top     |              |
+| Motors Floor      | PLA+       | 50%  | 10%    | No      | No      |              |
+| Electronics Floor | PLA+       | 25%  | 20%    | No      | No      |              |
+| Top Layer         | PLA+       | 25%  | 20%    | No      | No      |              |
+| The Rock Rockin   | PLA+       | 25%  | 10%    | Yes     | Yes     |              |
 
 There were some TPU prints (tracks). The settings where these:
 - 225ºC Hotend / 55ºC Bed
@@ -55,10 +72,10 @@ There were some TPU prints (tracks). The settings where these:
 - 0.16 mm layer height
 
 ## Mechanical designs
-Info about how motors where connected to the battlebot, how torque was improved...
+### Motor reduction through gears
+Explain the motor reduction and the design of the gears. Talk about connection to tracks and main cog.  
 
 ## Ideas
-- 3D print the wok
 - Think about an easy way of adding weigh to the robot. This is in order to get as close as possible to the 4kg limit, without surpassing it before final design.
 
 ## Knowledge Base
