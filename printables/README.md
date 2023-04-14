@@ -9,8 +9,8 @@ This section will focus on the printables and mechanics side of Rockobot
 | PLA+                  | 200 g | Weight is estimated           |
 | Transpartent PETG     | 100 g | Weight is estimated           |
 | TPU 95A               | 200 g | Weight is estimated           |
-| M4 Screws             | 20    |                               |
-| M4 Threaded Insert    | 20    | Inox Steel                    |
+| M3x6 Screws           | 20    |                               |
+| M3 Threaded Insert    | 20    | Brass, Ruthex                 |
 
 ## Tools
 - Screwdrivers
@@ -71,6 +71,9 @@ There were some TPU prints (tracks). The settings where these:
 - 80% Fan
 - 0.16 mm layer height
 
+It's worth mentioning that threaded inserts where used throughout the whole design. Using bare holes in 3D printing for screws is generally not a good idea,
+that's why we decided to use threaded inserts, allowing better repairability and strength. Below there is a link in which CNC Kitchen explains how to design holes for 3D printable parts 
+
 ## Mechanical designs
 ### Motor reduction through gears
 Explain the motor reduction and the design of the gears. Talk about connection to tracks and main cog.  
@@ -81,6 +84,7 @@ Explain the motor reduction and the design of the gears. Talk about connection t
 ## Knowledge Base
 - [Tank where the tracks design was extracted](https://www.thingiverse.com/thing:1240754)
 - [3D printing Tricks](https://youtu.be/krrqydtneO0)
+- [Designing for Threaded Inserts](https://www.cnckitchen.com/blog/tipps-amp-tricks-fr-gewindeeinstze-im-3d-druck-3awey)
 - [Strengthening through texturing by CNC Kitchen](https://youtu.be/3-ygdNQThAs)
 - [Maker's Muse Mini BattleBot as inspiration](https://www.youtube.com/watch?v=BvNRtRuOALw)
 - [Improved version of previous Mini BattleBot](https://www.youtube.com/watch?v=YWOqAwXmvJU)
