@@ -66,7 +66,7 @@ To enhance 3D prints strength, there are various techniques and slicer settings 
 | Motors Floor      | PLA+       | 50%  | 15%    | No      | No      |              |
 | Electronics Floor | PLA+       | 25%  | 10%    | No      | No      |              |
 | Top Layer         | PLA+       | 25%  | 10%    | No      | No      |              |
-| The Rock Rockin   | PLA+       | 25%  | 5%     | Yes     | Yes     |              |
+| The Rock Rockin   | PLA+       | 100% | 5%     | Yes     | Yes     |              |
 | Outer Connector   | PLA+       | 25%  | 15%    | No      | No      |              |
 | Cogs / Gears      | PLA+       | 25%  | 100%   | No      | No      |              |
 
