@@ -5,12 +5,15 @@ This section will focus on the printables and mechanics side of Rockobot
 
 | Component             | Units | Notes                         |
 | --------------------- | ----- | ----------------------------- |
-| Motor                 | 4     | Extracted from old toy car    |
-| PLA+                  | 200 g | Weight is estimated           |
-| Transpartent PETG     | 100 g | Weight is estimated           |
+| Motor                 | 2     | Extracted from old VHS        |
+| PLA/PLA+              | 500 g | Weight is estimated           |
 | TPU 95A               | 200 g | Weight is estimated           |
-| M3x6 Screws           | 20    |                               |
-| M3 Threaded Insert    | 20    | Brass, Ruthex                 |
+| M3x8 Screws           | 20    |                               |
+| M3x20 Screws          | 20    |                               |
+| M4x60 Screws          | 64    | Used in tracks                |
+| M4 Stop Nuts          | 64    | Used along the M4 screws      |
+| M3 Threaded Insert    | 30    | Ruthex Brand                  |
+| M3x80 Threaded Rod    | 4     |                               |
 
 ## Tools
 - Screwdrivers
@@ -33,6 +36,8 @@ This section will focus on the printables and mechanics side of Rockobot
 Explain each floor and the added modules (gearbox, shield...)
 
 #### Fillable Base
+This was not used in final design, but its purpose was being filled with something dense and liquid/fluid so that the robot weigh could be changed easily.
+Our idea was to use sand, but it isn't a great idea mixing 3D prints (which are not totally sealed) with something like sand. Also added complications with the infrarred sensors
 
 #### Motors Floor
 
@@ -50,18 +55,21 @@ Explain each floor and the added modules (gearbox, shield...)
 To enhance 3D prints strength, there are various techniques and slicer settings to adjust. There is a [gcode](https://github.com/Pelochus/rockobot/tree/main/printables/gcodes) section where the gcodes of each part with the following settings are stored. **Unless otherwise specified these are the common settings**:
 - 220/250ºC Hotend and 65/70ºC Bed temperatures for PLA+/PETG respectively
 - 50 mm/s speed
-- 5 walls, 0.4 mm thickness per wall
+- 4 walls, 0.4 mm thickness per wall
 - Cubic/Cubic Subdivision/Grid Infill Type
 - Avoid supports if possible
 - Prints must be intelligently aligned with the axes so that the forces that will be applied are not ripping layers apart
 
 | Part              | Material   | Fan  | Infill | Support | Ironing | Extras       |
 | ----------------- | ---------- | ---- | ------ | ------- | ------- | ------------ |
-| Fillable Base     | PLA+       | 25%  | 25%    | No      | Top     |              |
-| Motors Floor      | PLA+       | 50%  | 10%    | No      | No      |              |
-| Electronics Floor | PLA+       | 25%  | 20%    | No      | No      |              |
-| Top Layer         | PLA+       | 25%  | 20%    | No      | No      |              |
-| The Rock Rockin   | PLA+       | 25%  | 10%    | Yes     | Yes     |              |
+| Fillable Base     | PLA+       | 25%  | 25%    | No      | No      |              |
+| Motors Floor      | PLA+       | 50%  | 15%    | No      | No      |              |
+| Electronics Floor | PLA+       | 25%  | 10%    | No      | No      |              |
+| Top Layer         | PLA+       | 25%  | 10%    | No      | No      |              |
+| The Rock Rockin   | PLA+       | 25%  | 5%     | Yes     | Yes     |              |
+| Outer Connector   | PLA+       | 25%  | 15%    | No      | No      |              |
+| Cogs / Gears      | PLA+       | 25%  | 100%   | No      | No      |              |
+
 
 There were some TPU prints (tracks). The settings where these:
 - 225ºC Hotend / 55ºC Bed
@@ -76,7 +84,7 @@ that's why we decided to use threaded inserts, allowing better repairability and
 
 ## Mechanical designs
 ### Motor reduction through gears
-Explain the motor reduction and the design of the gears. Talk about connection to tracks and main cog.  
+Explain the motor reduction and the design of the gears. Talk about connection to tracks and main cog...
 
 ## Ideas
 - Think about an easy way of adding weigh to the robot. This is in order to get as close as possible to the 4kg limit, without surpassing it before final design.
@@ -86,6 +94,4 @@ Explain the motor reduction and the design of the gears. Talk about connection t
 - [3D printing Tricks](https://youtu.be/krrqydtneO0)
 - [Designing for Threaded Inserts](https://www.cnckitchen.com/blog/tipps-amp-tricks-fr-gewindeeinstze-im-3d-druck-3awey)
 - [Strengthening through texturing by CNC Kitchen](https://youtu.be/3-ygdNQThAs)
-- [Maker's Muse Mini BattleBot as inspiration](https://www.youtube.com/watch?v=BvNRtRuOALw)
-- [Improved version of previous Mini BattleBot](https://www.youtube.com/watch?v=YWOqAwXmvJU)
 - [Transparent and strong PETG settings by CNC Kitchen](https://www.youtube.com/watch?v=9qb25Gi4Jv0)

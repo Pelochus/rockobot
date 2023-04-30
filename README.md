@@ -34,7 +34,7 @@ along with parts lists, tools used, requirements to fulfill, ideas and a knowled
 2. [Tools](https://github.com/Pelochus/rockobot/tree/main/arduino#Tools)
 3. [Requirements](https://github.com/Pelochus/rockobot/tree/main/arduino#Requirements)
 4. [Functions](https://github.com/Pelochus/rockobot/tree/main/arduino#Functions)
-5. [Other subsection](https://github.com/Pelochus/rockobot/tree/main/arduino#TODO)
+5. [Reducing the number of digital pins](https://github.com/Pelochus/rockobot/tree/main/arduino#Reducing-the-number-of-digital-pins)
 6. [Ideas](https://github.com/Pelochus/rockobot/tree/main/arduino#Ideas)
 7. [Knowledge Base](https://github.com/Pelochus/rockobot/tree/main/arduino#Knowledge-base)
 
@@ -51,13 +51,10 @@ along with parts lists, tools used, requirements to fulfill, ideas and a knowled
   - Damage the robot
 
 ## TODO
-- Official Robot name
 - Add the following subsections:
-  - arduino/libraries
   - electronics/pcb
     - pcb/gerber
   - electronics/circuits
-  - electronics/datasheets
   - printables/gcodes
   - printables/stl
 - (Optional) Add images folder and/or prototypes folder. This can include hand-made sketches photos
