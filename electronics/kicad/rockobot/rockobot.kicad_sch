@@ -1256,8 +1256,8 @@
     (uuid ff76ee55-827e-4b59-ae1a-05a6012ded5b)
   )
 
-  (text "Pins 5 and 6 are PWM-able, that is \nwhy they are used for ENA and ENB\n"
-    (at 78.74 105.41 0)
+  (text "Pins 3 and 9 are PWM-able, that is \nwhy they are used for ENA and ENB\n"
+    (at 92.71 78.74 0)
     (effects (font (size 0.85 0.85) bold) (justify left bottom))
     (uuid 086656c8-cca2-4c4f-8d82-caf7727bb917)
   )
@@ -1278,6 +1278,11 @@
     (at 62.23 152.4 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 8af594d3-f9fc-4aed-9de5-886b4ba7676d)
+  )
+  (text "In order (D3 to D9 except D8):\nENA,\nIN1 to IN4,\nENB"
+    (at 88.9 95.25 0)
+    (effects (font (size 1.1 1.1)) (justify left bottom))
+    (uuid cfe75885-b76e-4409-9afc-104924841863)
   )
 
   (symbol (lib_id "Connector:Conn_01x02_Socket") (at 73.66 33.02 270) (mirror x) (unit 1)
@@ -1307,12 +1312,12 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x06_Socket") (at 119.38 95.25 180) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid 0653f7da-6f38-47fd-9f64-acb2e397b2ef)
-    (property "Reference" "Motor_Control1" (at 120.015 83.82 0)
+    (property "Reference" "Motor_Control1" (at 105.41 82.55 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "Conn_01x06_Socket" (at 120.015 86.36 0)
+    (property "Value" "Conn_01x06_Socket" (at 106.045 85.09 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" (at 119.38 95.25 0)
