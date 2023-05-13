@@ -10,27 +10,31 @@
 */
 
 #include <HCSR04.h> // RCWL-1601 is compatible
+#include <L298N_Rockobot.h>
 
-// TODO change pin numbers
-#define LMOTOR_EN 2
-#define LMOTOR_IN1 3
-#define LMOTOR_IN2 4
-#define RMOTOR_IN1 5
-#define RMOTOR_IN2 6
-#define RMOTOR_EN 7
+// See PCB/Schematics for pin numbers
+#define ENA 3
+#define IN1 4
+#define IN2 5
+#define IN3 6
+#define IN4 7
+#define ENB 9
 
-#define TRIGGER 4
-#define ECHO_FRONT 5
-#define ECHO_BACK 5
+#define TRIGGER 10
+#define ECHO_BACK 11
+#define ECHO_FRONT 12
 
-#define IR_READ_FRONT_PIN A2
-#define IR_READ_BACK_PIN A2
+#define IR_BACK A0
+#define IR_LEFT A1
+#define IR_RIGHT A2
+#define IR_FRONT A3
 
 #define MAX_DISTANCE 200 // Adapt to ring maximum distance (in cm)
 #define ACTION_DELAY 50 // Delay in ms between one loop and another
 
 UltraSonicDistanceSensor us_sensor_front(TRIGGER, ECHO_FRONT, MAX_DISTANCE);
 UltraSonicDistanceSensor us_sensor_back(TRIGGER, ECHO_BACK, MAX_DISTANCE);
+L298N_Rockobot motor_driver(ENA, ENB, IN1, IN2, IN3, IN4);
 
 // Example scheme: 
 // First read values from sensor, then think how to act and end with actuators
@@ -47,19 +51,13 @@ void act() {
 }
 
 void setup() {
-  /*
-  pinMode(LMOTOR_IN1, OUTPUT);
-  pinMode(LMOTOR_IN2, OUTPUT);
-  pinMode(LMOTOR_EN, OUTPUT);
-  pinMode(RMOTOR_IN1, OUTPUT);
-  pinMode(RMOTOR_IN2, OUTPUT);
-  pinMode(RMOTOR_EN, OUTPUT);
+  // Both Motors and US sensors pinModes are set in their respective classes
+  pinMode(IR_FRONT, INPUT);
+  pinMode(IR_BACK, INPUT);
+  pinMode(IR_RIGHT, INPUT);
+  pinMode(IR_LEFT, INPUT);
 
-  digitalWrite(LMOTOR_IN1, HIGH);
-  digitalWrite(LMOTOR_IN2, LOW);
-  */
-
-  Serial.begin(9600); // Remove in final versions
+  Serial.begin(9600); // Remove in final version
 }
 
 void loop() {
