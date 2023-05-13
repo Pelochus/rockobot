@@ -1279,7 +1279,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 8af594d3-f9fc-4aed-9de5-886b4ba7676d)
   )
-  (text "In order (D3 to D9 except D8):\nENA,\nIN1 to IN4,\nENB"
+  (text "In order (D3 to D9 except D8):\nENB,\nIN1 to IN4,\nENA"
     (at 88.9 95.25 0)
     (effects (font (size 1.1 1.1)) (justify left bottom))
     (uuid cfe75885-b76e-4409-9afc-104924841863)
