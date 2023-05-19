@@ -54,26 +54,39 @@ public:
     L298N_Rockobot(uint8_t ena, uint8_t enb, uint8_t in1, uint8_t in2, uint8_t in3, uint8_t in4);
 
     /**
-     * Returns current robot direction
+     * @brief Returns current robot direction
      * @returns enum direction_t with current direction
      */
-    inline direction_t current_direction() const;
+    direction_t current_direction() const;
 	
 	/**
-     * Returns current robot speed
+     * @brief Returns current robot speed
      * @returns uint8_t with current speed
      */
-    inline uint8_t current_speed() const;
+    uint8_t current_speed() const;
 	
 	/**
-     * Sets new speed
+     * @brief Returns current robot speed, in percentage
+     * @returns uint8_t with current speed
+     */
+    uint8_t current_speed_percentage() const;
+	
+	/**
+     * @brief Sets new speed
 	 * @param speed, accepted in range 0-255
 	 * @note Motors will probably not work (or work slowly and stressed) with values below 100
      */
     void set_speed(const uint8_t new_speed);
 	
 	/**
-     * Sets a new direction
+     * @brief Sets new speed, in percentage
+	 * @param speed, accepted in range 0-100
+	 * @note Motors will probably not work well with values below 40%
+     */
+    void set_speed_percentage(uint8_t new_speed);
+	
+	/**
+     * @brief Sets a new direction
 	 * @param new_direction, entered via enum direction_t
      */
     void set_direction(const direction_t new_direction);
