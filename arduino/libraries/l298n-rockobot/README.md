@@ -1,0 +1,51 @@
+# L298N library for Rockobot
+This README will briefly explain the what the functions of the library for controlling Rockobot's motors. All of them are very simple, so we will only take a look at each function and what they do, not how they are programmed
+
+## enums
+We have created two enums for simplifying code reading, one for setting the direction of the robot and one for referring to a specific motor (or both):
+
+```c++
+enum direction_t {
+	FWD,
+	RWD,
+	LEFT,
+	RIGHT
+};
+
+enum motor_t {
+	LMOTOR,
+	RMOTOR,
+	BOTH
+};
+```
+
+```motor_t``` does not need to be used outside the class.
+
+## Constructor
+Very simple stuff, just call it with the corresponding Arduino pins for each L298N driver input
+```c++
+L298N_Rockobot(uint8_t ena, uint8_t enb, uint8_t in1, uint8_t in2, uint8_t in3, uint8_t in4);
+```
+For the v1.0 PCB it's this order (respectively): 
+**3, 4, 5, 6, 7, 9**
+
+## Getters
+They do what their name say, so the first one returns a ```direction_t``` with the current direction. 
+The other return the current speed in two forms: range 0-255 and range 0-100 for the percentage version
+```c++
+direction_t current_direction() const;
+
+uint8_t current_speed() const;
+
+uint8_t current_speed_percentage() const;
+```
+## Setters
+Exactly the same as the getters but setters. The ```set_direction()``` function sets the robot direction, NOT the motors'. 
+Internally, it uses a private function with sets the motors correspondingly to what direction is wanted
+```c++
+void set_speed(const uint8_t new_speed);
+
+void set_speed_percentage(uint8_t new_speed);
+
+void set_direction(const direction_t new_direction);
+```
