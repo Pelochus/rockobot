@@ -2,12 +2,11 @@
 This section will focus on the software side of Rockobot
 
 ## Components
-- Arduino MEGA 2560
-- Arduino NANO
+- Arduino NANO V3
 
 ## Tools
 - Computer
-- USB-B to USB-A
+- Mini USB-B to USB-A
 - Arduino IDE
 
 ## Requirements
@@ -16,9 +15,10 @@ This section will focus on the software side of Rockobot
 - Focus on optimisation
 
 ## Functions
+The majority of functions here are very simple, except for the main function that decides what to do. There is information about the library for controlling the motor driver [here](https://github.com/Pelochus/rockobot/blob/main/arduino/libraries/l298n-rockobot/README.md). Let's take a look at the main function of Rockobot:
 ```c++
-void foo(int var) {
-    return var;
+void loop() {
+    // TODO this whole function
 }
 ```
 
@@ -43,7 +43,6 @@ With this reduction, **we only use 9 digital pins**, having some spare digital p
 - Switch between IR controlled mode and autonomous mode:
     - Wait for an input at setup with 2 buttons, one for each mode, in loop function, call either autonomous or controlled mode
     - Make the input a key, similar to a car
-- Make a small library for motor controlling, with ability to change rotate, increase/decrease speed and reverse direction
 
 ## Knowledge Base
 - [Arduino Docs](https://docs.arduino.cc/)
