@@ -1,6 +1,9 @@
 # Rockobot
-Battlebot made for SMP subject in Computer Engineering, UGR. This repository contains information about the mechanics, electronics and programming of the robot
-along with parts lists, tools used, requirements to fulfill, ideas and a knowledge database. This README serves as an index for each subsection (Mechanics, Electronics and Programming) and for some generic stuff. For detailed information, see the READMEs for each subsection:
+Battlebot made for SMP subject in Computer Engineering, UGR. This subject focuses on learning microcontrollers and embedded systems, with Arduino especifically. In order to properly learn an actual use case for embedded systems, we have to build a battlebot and make it compete with our classmates' counterparts in a tournament. Personally, we wanted to take the chance to learn a bit more of what was taught in class, so we learned both Fusion 360 and KiCad in order to improve the performance and originality of our robot, adding custom 3D printed parts and a self-designed PCB. Here we have a photo of the final assembly:
+
+TODO put the final assembly photo here
+
+This repository contains information about the mechanics, electronics and programming of the robot along with parts lists, tools used, future ideas and a knowledge database. This README serves as an index for each subsection (Mechanics/Printables, Electronics and Programming) and for some generic stuff. For detailed information, see the READMEs for each subsection:
 
 - [Mechanics/3D Printables](https://github.com/Pelochus/rockobot/tree/main/printables/)
 - [Electronics](https://github.com/Pelochus/rockobot/tree/main/electronics/)
@@ -22,11 +25,10 @@ along with parts lists, tools used, requirements to fulfill, ideas and a knowled
 
 1. [Components](https://github.com/Pelochus/rockobot/tree/main/electronics#Components)
 2. [Tools](https://github.com/Pelochus/rockobot/tree/main/electronics#Tools)
-3. [Requirements](https://github.com/Pelochus/rockobot/tree/main/electronics#Requirements)
-4. [PCB](https://github.com/Pelochus/rockobot/tree/main/electronics#PCB)
-5. [Circuits](https://github.com/Pelochus/rockobot/tree/main/electronics#Circuits)
-6. [Ideas](https://github.com/Pelochus/rockobot/tree/main/electronics#Ideas)
-7. [Knowledge Base](https://github.com/Pelochus/rockobot/tree/main/electronics#Knowledge-base)
+3. [PCB](https://github.com/Pelochus/rockobot/tree/main/electronics#PCB)
+4. [Circuits](https://github.com/Pelochus/rockobot/tree/main/electronics#Circuits)
+5. [Ideas](https://github.com/Pelochus/rockobot/tree/main/electronics#Ideas)
+6. [Knowledge Base](https://github.com/Pelochus/rockobot/tree/main/electronics#Knowledge-base)
 
 ### Arduino/Software
 
@@ -52,9 +54,5 @@ along with parts lists, tools used, requirements to fulfill, ideas and a knowled
 
 ## TODO
 - Add the following subsections:
-  - electronics/pcb
-    - pcb/gerber
-  - electronics/circuits
   - printables/gcodes
   - printables/stl
-- (Optional) Add images folder and/or prototypes folder. This can include hand-made sketches photos
