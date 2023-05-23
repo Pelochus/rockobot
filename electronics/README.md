@@ -37,11 +37,11 @@ We can see these components:
 - 2 voltage regulators, one will be exclusively for the Arduino (needs more than 7V, max 12V, the Vin pin will do the rest) and the other for the sensors (both infrarred and US) at 5 volts
 - Arduino NANO itself
 
-The final result should look like this:
+The final result should look like this (except for all the male pins which are connected to the JST, which are **backup connectors**):
 
 ![KiCadPCB3D](https://github.com/Pelochus/rockobot/blob/main/electronics/images/kicad_pcb_3D.jpg)
 
-However we made little changes to adapt it to our final design. The only two important changes are the female pins for the Arduino (so we can remove it or insert it whenever we want) and the position of the XT60 connector, which is facing downwards because our battery didn't have a long enough wire:
+However we made little changes to adapt it to our final design. The only two important changes are **the female pins for the Arduino** (so we can remove it or insert it whenever we want) and the **position of the XT60 connector**, which is facing downwards because our battery didn't have a long enough wire. We also did not include those extra male pins, which were inserted just in case we had problems with the JST connectors.
 
 ![PCBFinal](https://github.com/Pelochus/rockobot/blob/main/electronics/images/pcb.jpg)
 
