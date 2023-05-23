@@ -2,46 +2,64 @@
 This section will focus on the electronics side of Rockobot
 
 ## Components
-| Component             | Units | Notes                         |
-| --------------------- | ----- | ----------------------------- |
-| Soldering Tin         | -     |                               |
-| Jumper wires          | 20    |                               |
-| 5K Ohms Resistors     | 4     | Used with infrarred sensors   |
-| 100 Ohms Resistors    | 1     | Used with infrarred sensors   |
-| Metallic Power Button | 1     | Red, with LEDs                |
-| RCWL-1601 US Sensor   | 4     | Very similar to HC-SR04       |
-| TCRT5000 Reflect IR   | 4     |                               |
-| JGA25-370 DC Motor    | 2     | 100 RPM @ 12V                 |
-| L289N Motor Driver    | 1     |                               |
-| StepDown Converter 5V | 1     | Potentiometer at about 8V     |
-| Accelerometer         | 1     | TODO: Maybe will not be added |
-| 1550mAh 14.8V Battery | 1     |                               |
-| Battery Alarm         | 1     |                               |
-| XT-60 Female          | 1     | Used for battery connection   |
-| JSTXH2.54 4P Wire     | 6     | For sensors/motors connection |
-| JSTXH2.54 4P Female   | 6     | For sensors/motors connection |
-| Male 2.54 Pins        | -     | For some connections/upgrades |
+| Component             | Units | Notes                         | Link                                      |
+| --------------------- | ----- | ----------------------------- | ----------------------------------------- |
+| Soldering Tin         | -     |                               |                                           |
+| Wires                 | -     | Dupont or common wires        |                                           |
+| 5K Ohms Resistors     | 4     | Used with infrarred sensors   |                                           |
+| 100 Ohms Resistors    | 4     | Used with infrarred sensors   |                                           |
+| Metallic Power Button | 1     | Red, with LEDs                |                                           |
+| RCWL-1601 US Sensor   | 2     | Very similar to HC-SR04       |                                           |
+| TCRT5000 Reflect IR   | 4     |                               |                                           |
+| JGA25-370 DC Motor    | 2     | 100RPM@12V Not used           |                                           |
+| L289N Motor Driver    | 1     |                               |                                           |
+| StepDown Converter 5V | 2     | One at 8V the other at 5V     |                                           |
+| 1550mAh 14.8V Battery | 1     | 4S LiPo, with XT60 connector  |                                           |
+| Battery Alarm         | 1     |                               |                                           |
+| XT-60 Female          | 1     | Used for battery connection   |                                           |
+| JSTXH2.54 4P Wire     | 6     | For sensors/motors connection |                                           |
+| JSTXH2.54 4P Female   | 6     | For sensors/motors connection |                                           |
+| Male 2.54 Pins        | ~20   | For some connections/upgrades |                                           |
+| Rockobot v1.0 PCB     | 1     |                               |                                           |
 
 ## Tools
 - Soldering Iron
 - Balance Charger
 
-## Requirements
-- Decent layout
-- PCB/Perfboard
-- Common Ground
-- Ability to connect and disconnect components, very useful for replacing and repairing
-
 ## PCB
-Information, design and photo of the PCB used
+Here we have a photo of the PCB in KiCad:
+
+![KiCadPCB](https://github.com/Pelochus/rockobot/blob/main/electronics/images/kicad_pcb.jpg)
+
+We can see these components:
+- Various connectors, including male 2.54 pins, JSTXH 2.54 for the sensors and XT60 male for the battery
+- Resistors for the IR sensors
+- 2 voltage regulators, one will be exclusively for the Arduino (needs more than 7V, max 12V, the Vin pin will do the rest) and the other for the sensors (both infrarred and US) at 5 volts
+- Arduino NANO itself
+
+The final result should look like this:
+
+![KiCadPCB3D](https://github.com/Pelochus/rockobot/blob/main/electronics/images/kicad_pcb_3D.jpg)
+
+However we made little changes to adapt it to our final design. The only two important changes are the female pins for the Arduino (so we can remove it or insert it whenever we want) and the position of the XT60 connector, which is facing downwards because our battery didn't have a long enough wire:
+
+![PCBFinal](https://github.com/Pelochus/rockobot/blob/main/electronics/images/pcb.jpg)
 
 ## Circuits
-Schematics of independent circuits that deserve a subsection and a schematic of the whole circuit
+This is a photo of the schematic:
+
+![KiCadSchematic](https://github.com/Pelochus/rockobot/blob/main/electronics/images/kicad_schematic.jpg)
+
+The electronic design is relatively simple, basically we can divide it in two parts:
+- Battery Input, voltage regulators and power switch
+- Arduino and its connections to the sensors
 
 ## Ideas
-- Use perfboards for semi-final prototypes
-- Avoid as much as possible soldering for final version, use connectors whenever possible, improves repairability
-- Include more than one infrarred sensor, for increased awareness of getting out of the designed battle area
+Here are some ideas for future revisions:
+- Change from Arduino NANO to, for example, ESP32
+- Add a section to the PCB with male pins connected to the digital pins, to add some modularity. Also add two more male pins, one connected to Arduino 5V and the other to GND
+- Change some pins (like the 6 motor driver pins) to other JST XH2.54 or other connectors. For the previous example, from common male pins to JST XH2.54 6P
+- Resize PCB accordingly to what new changes were introduced
 
 ## Knowledge Base
 - [KiCad 7 Tutorial, from schematics to final PCB](https://www.youtube.com/watch?v=3FGNw28xBr0)
