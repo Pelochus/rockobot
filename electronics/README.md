@@ -11,7 +11,7 @@ This section will focus on the electronics side of Rockobot
 | Metallic Power Button | 1     | Red, with LEDs                |                                           |
 | RCWL-1601 US Sensor   | 2     | Very similar to HC-SR04       |                                           |
 | TCRT5000 Reflect IR   | 4     |                               |                                           |
-| JGA25-370 DC Motor    | 2     | 100RPM@12V Not used           |                                           |
+| JGA25-370 DC Motor    | 2     | 100RPM@12V **Not used**       |                                           |
 | L289N Motor Driver    | 1     |                               |                                           |
 | StepDown Converter 5V | 2     | One at 8V the other at 5V     |                                           |
 | 1550mAh 14.8V Battery | 1     | 4S LiPo, with XT60 connector  |                                           |
@@ -43,7 +43,11 @@ The final result should look like this (except for all the male pins which are c
 
 However we made little changes to adapt it to our final design. The only two important changes are **the female pins for the Arduino** (so we can remove it or insert it whenever we want) and the **position of the XT60 connector**, which is facing downwards because our battery didn't have a long enough wire. We also did not include those extra male pins, which were inserted just in case we had problems with the JST connectors.
 
-![PCBFinal](https://github.com/Pelochus/rockobot/blob/main/electronics/images/pcb.jpg)
+![PCB-Almost-Finished](https://github.com/Pelochus/rockobot/blob/main/electronics/images/pcb.jpg)
+
+Here is the totally finished design integrated in the robot:
+
+TODO put a photo here of the final PCB integrated in the robot
 
 ## Circuits
 This is a photo of the schematic:
@@ -59,6 +63,9 @@ Here are some ideas for future revisions:
 - Change from Arduino NANO to, for example, ESP32
 - Add a section to the PCB with male pins connected to the digital pins, to add some modularity. Also add two more male pins, one connected to Arduino 5V and the other to GND
 - Change some pins (like the 6 motor driver pins) to other JST XH2.54 or other connectors. For the previous example, from common male pins to JST XH2.54 6P
+- Rethink some components like the regulators. For example:
+  - Reduce to just one regulator, by using the Arduino for powering sensors (depending on how many sensors are used, in this design it is possible but near the Arduino limit)
+  - Change to a fixed SMD regulator, to avoid changing the potentiometer unintentionally to an unsafe voltage. Also to better fit in the PCB (current implementation is rather messy)
 - Resize PCB accordingly to what new changes were introduced
 
 ## Knowledge Base
