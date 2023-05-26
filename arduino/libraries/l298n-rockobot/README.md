@@ -6,8 +6,8 @@ We have created two enums for simplifying code reading, one for setting the dire
 
 ```c++
 enum direction_t {
-	FWD,
-	RWD,
+	FORWARD,
+	BACKWARD,
 	LEFT,
 	RIGHT
 };
