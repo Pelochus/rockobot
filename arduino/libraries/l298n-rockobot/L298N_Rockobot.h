@@ -11,8 +11,8 @@
 
 // Created for more readable code when selecting direction
 enum direction_t {
-	FWD,
-	RWD,
+	FORWARD,
+	BACKWARD,
 	LEFT,
 	RIGHT
 };
@@ -34,7 +34,7 @@ private:
 	const uint8_t IN3;
 	const uint8_t IN4;
 	uint8_t speed = 255; // Max speed, equals 100%
-	direction_t direction = FWD; // Default direction is forward
+	direction_t direction = FORWARD; // Default direction is forward
 	
 	/**
 	 * @brief Sets direction for motor L or R

@@ -18,7 +18,7 @@ L298N_Rockobot::L298N_Rockobot(uint8_t ena, uint8_t enb, uint8_t in1, uint8_t in
 	pinMode(IN4, OUTPUT);
 	
 	set_speed(speed);
-	set_direction(FWD);
+	set_direction(FORWARD);
 }
 
 direction_t L298N_Rockobot::current_direction() const {
@@ -63,7 +63,7 @@ void L298N_Rockobot::set_motor_direction(const motor_t motor, const direction_t 
 	// Also check if HIGH/LOW values are set correctly
 	else if (motor == LMOTOR) {
 		// Makes left motor go forward
-		if (new_direction == FWD || new_direction == RIGHT) {
+		if (new_direction == FORWARD || new_direction == RIGHT) {
 			digitalWrite(IN1, HIGH);
 			digitalWrite(IN2, LOW);
 		}
@@ -74,7 +74,7 @@ void L298N_Rockobot::set_motor_direction(const motor_t motor, const direction_t 
 	}
 	else {
 		// Makes right motor go forward
-		if (new_direction == FWD || new_direction == LEFT) {
+		if (new_direction == FORWARD || new_direction == LEFT) {
 			digitalWrite(IN3, LOW);
 			digitalWrite(IN4, HIGH);
 		}
