@@ -25,8 +25,8 @@
 #define ECHO_BACK 12
 
 #define IR_BACK A0
-#define IR_LEFT A1
-#define IR_RIGHT A2
+#define IR_RIGHT A1
+#define IR_LEFT A2
 #define IR_FRONT A3
 
 #define MAX_DISTANCE 200 // Adapt to ring max dimension
@@ -138,6 +138,7 @@ void setup() {
 
   Serial.begin(9600); // Remove in final version
 
+  motor_driver.set_speed_percentage(0);
   delay(STARTUP_DELAY); // Mandatory delay for official competition
 }
 
@@ -154,6 +155,15 @@ void loop() {
   */
 
   // Serial.println(us_front.measureDistanceCm());
+
+  motor_driver.set_speed_percentage(60);
+  motor_driver.set_direction(BACKWARD);
+
+  delay(2000);
+
+  motor_driver.set_speed_percentage(0);
+  
+  delay(5000);
 
   delay(ACTION_DELAY);
 }
