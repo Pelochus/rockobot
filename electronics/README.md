@@ -21,6 +21,7 @@ This section will focus on the electronics side of Rockobot
 | JSTXH2.54 4P Female   | 6     | For sensors/motors connection |                                           |
 | Male 2.54 Pins        | ~20   | For some connections/upgrades |                                           |
 | Rockobot v1.0 PCB     | 1     |                               |                                           |
+| Optional Components   | -     | Some other useful components: | Heat Shrink tubing, insulating tape...    |
 
 ## Tools
 - Soldering Iron

@@ -3,19 +3,20 @@ This section will focus on the printables and mechanics side of Rockobot
 
 ## Components
 
-| Component             | Units | Notes                         |
-| --------------------- | ----- | ----------------------------- |
-| Motor                 | 2     | Extracted from old VHS        |
-| PLA/PLA+              | 850 g | Weight is estimated           |
-| TPU 95A               | 250 g | Weight is estimated           |
-| M3x8 Screws           | 32    |                               |
-| M3x20 Screws          | 20    |                               |
-| M4x60 Screws          | 70    | Used in tracks and some cogs  |
-| M4 Stop Nuts          | 64    | Used along the M4 screws      |
-| M3 Threaded Insert    | 50    | Ruthex Brand                  |
-| M3x80 Threaded Rod    | 4     |                               |
-| M3 Nuts               | ~10   | Used with threaded rods       |
-| M4 Nuts               | ~6   | Used with some OutConn screws |
+| Component             | Units | Notes                                         |
+| --------------------- | ----- | --------------------------------------------- |
+| Motor                 | 2     | Extracted from old VHS                        |
+| PLA/PLA+              | 850 g | Weight is estimated                           |
+| TPU 95A               | 250 g | Weight is estimated                           |
+| M3x8 Screws           | 32    |                                               |
+| M3x20 Screws          | 20    |                                               |
+| M4x60 Screws          | 70    | Used in tracks and some cogs                  |
+| M4 Stop Nuts          | 64    | Used along the M4 screws                      |
+| M3 Threaded Insert    | 50    | Ruthex Brand                                  |
+| M3x80 Rod             | 4     | If threaded, use x8 M3 stop nuts              |
+| M3 Nuts               | ~15   | Used with threaded rods                       |
+| M4 Nuts               | ~8    | Used with some OutConn screws                 |
+| Optional components   | -     | Vaseline (lubricant), washers, silicone...    |
 
 ## Tools
 - Screwdrivers
@@ -35,18 +36,18 @@ This section will focus on the printables and mechanics side of Rockobot
 
 ## 3D designs
 ### Rockobot Core
-Explain each floor and the added modules (gearbox, shield...)
+Here is a photo of the full design in Fusion 360. This only includes what was designed with Fusion, not any other mechanical component. There may be some minor differences, since the mounted has some manual adaptations that were later introduced properly to the design.
 
 ![Full-Design]()
 
 #### Fillable Base
 This was not used in final design, but its purpose was being filled with something dense and liquid/fluid so that the robot weigh could be changed easily.
-Our idea was to use sand, but it isn't a great idea mixing 3D prints (which are not totally sealed) with something like sand. Also added complications with the infrarred sensors
+Our idea was to use sand, but it isn't a great idea mixing 3D prints (which are not totally sealed, due to the concept of layers) with something like sand. Also added complications with the infrarred sensors, so it was abandoned as an idea, but still present in the design.
 
 ![Fillable-Base]()
 
 #### Motors Floor
-Biggest, most important 3D printed part of the whole design. Will need at least 280 g of plastic. The purpose of this floor is to connect the motor to the tracks, act as the bottom floor, includes the infrarred sensors and the slot for the battery. With everything set it weighs not too far from a kilogram. There is a second slot for another battery, or for adding something heavy to add extra weight.
+Biggest, most important 3D printed part of the whole design. Will need at least 280 g of plastic. The purpose of this floor is to connect the motor to the tracks, act as the bottom floor, includes the infrarred sensors and the slot for the battery. With everything set, it weighs not too far from a kilogram. There is a second slot for another battery, or for adding something heavy to add extra weight.
 
 ![Motors-Floor]()
 
@@ -77,12 +78,17 @@ Can be 3D printed, but it is designed to be done with a metal sheet and a laser 
 
 ![Rockobot-Shield]()
 
+### Outer Connector and Tracks
+Extracted from a FPV Rover Tank from Thingiverse ([thanks to the guy who designed and published it](https://www.thingiverse.com/thing:1240754)). Both the track, outer connector and cogs where oversized by about 130% from the original design. There are also heavy modifications to the outer connector to adapt it to our design. The design is basically a simplified version of a real tank, in which the cogs apply the forces to the tracks and the outer connector serves as a structure to keep it all connected.
+
+![OuterConnector-Tracks]()
+
 ## Enhancing 3D prints strength
-To enhance 3D prints strength, there are various techniques and slicer settings to adjust. There is a [gcode](https://github.com/Pelochus/rockobot/tree/main/printables/gcodes) section where the gcodes of each part with the following settings are stored. **Unless otherwise specified these are the common settings**:
+To enhance 3D prints strength, there are various techniques and slicer settings to adjust. These settings assume a **0.4 mm nozzle**, but it can be done with similarly sized nozzles. **Unless otherwise specified these are the common settings**:
 - 215/250ºC Hotend and 60/75ºC Bed temperatures for PLA+/PETG respectively
-- 50 mm/s speed, 60 mm/s for bigger parts
+- 50 mm/s speed, 60 mm/s for bigger parts, 40 mm/s for smaller, stronger parts.
 - 4 walls, 0.4 mm thickness per wall
-- Cubic/Cubic Subdivision/Grid Infill Type. We recommend (and used) cubic subdivision for strength in all axes and also to lower plastic used 
+- Cubic/Cubic Subdivision/Grid Infill Type. We recommend (and used) cubic subdivision for strength in all axes and also to lower the amount of plastic used
 - Avoid supports (it is possible, some parts may require higher fan speeds)
 - Prints must be intelligently aligned with the axes so that the forces that will be applied are not ripping layers apart
 
@@ -101,13 +107,12 @@ There were some TPU prints (tracks). The settings where these:
 - 225ºC Hotend / 55ºC Bed
 - 30 mm/s speed
 - 3 walls, 0.4 mm thickness per wall
-- Grid Infill Type / 10% infill
+- Grid Infill Type / 10% infill. Infill can be changed if extra flexibility is desired.
 - 80% Fan
 - 0.16 mm layer height
 
 It's worth mentioning that threaded inserts where used throughout the whole design. Using bare holes in 3D printing for screws is generally not a good idea,
-that's why we decided to use threaded inserts, allowing better repairability and strength. They also require to have 1.6 mm walls, that is why that setting is 4 walls instead of the common 3. 
-Below there is a link in which CNC Kitchen explains how to design holes for 3D printable parts 
+that's why we decided to use threaded inserts, allowing better repairability and strength. They also require to have 1.6 mm walls, that is why that setting is 4 walls instead of the common 3 walls. Below there is a link in which CNC Kitchen explains how to design holes for 3D printable parts and threaded inserts.
 
 ## Mechanical designs
 ### Motor reduction through gears
@@ -119,9 +124,9 @@ Since we used two motors from an old VHS player, we had to reduce the speed of t
 Some ideas for future revisions:
 - Think about an easy way of adding weigh to the robot. This is in order to get as close as possible to the 4kg limit, without surpassing it before final design
 - Reduce the number of screws and reduce the variety between them, for example, change the frontal MC to M3, to be the same as the back ones (or viceversa)
-- Use more PETG and ABS/ASA
+- Use more PETG and/or ABS/ASA
 - Redesign from zero if want lots of changes, because some sketches and other Fusion features are a bit messy
-- Use parametric dimensions
+- Use more parametric dimensions
 - Improve structure and think how to reduce filamente use along the way
 - Think about a simpler version with wheels and 4 motors (as an alternative, speedier version, more than an upgrade) 
 
