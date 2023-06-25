@@ -53,6 +53,10 @@ uint8_t search_stage = 0;
 // Structure: 
 // First read values from sensor, then think what to do and send info to motors
 void rockobot_think() {
+
+  //////////////////////////////////
+  // Read Sensors
+  //////////////////////////////////
   uint8_t front_distance = us_front.measureDistanceCm();
   uint8_t back_distance = us_back.measureDistanceCm();
   bool ir_front = analogRead(IR_FRONT) > IR_THRESHOLD;
@@ -61,22 +65,22 @@ void rockobot_think() {
   bool ir_left = analogRead(IR_LEFT) > IR_THRESHOLD;
 
   //////////////////////////////////
-  // Prioritise exiting danger zone
+  // Think
   //////////////////////////////////
+
+  uint8_t speed = 100;
+  direction_t direction = FAST_STOP;
   
   // Anti-ramp
   if ((ir_front ? 1 : 0) + (ir_back ? 1 : 0) + 
       (ir_right ? 1 : 0) + (ir_left ? 1 : 0) > 2) {
-    driver.set_speed_percentage(100);
-    driver.set_direction(RIGHT);
+    direction = RIGHT;
   }
   else if (ir_front > IR_THRESHOLD) {
-    driver.set_speed_percentage(100);
-    driver.set_direction(BACKWARD);
+    direction = BACKWARD;
 
     if (front_counter > STUCK_COUNT) {
-      driver.set_speed_percentage(100);
-      driver.set_direction(RIGHT);
+      direction = RIGHT;
       front_counter /= 2; 
     }
     
@@ -84,12 +88,10 @@ void rockobot_think() {
     back_counter = 0;
   }
   else if (ir_back > IR_THRESHOLD) {
-    driver.set_speed_percentage(100);
-    driver.set_direction(FORWARD);
+    direction = FORWARD;
 
     if (back_counter > STUCK_COUNT) {
-      driver.set_speed_percentage(100);
-      driver.set_direction(RIGHT);
+      direction = RIGHT;
       back_counter /= 2; 
     }
 
@@ -97,17 +99,17 @@ void rockobot_think() {
     back_counter++;
   }
   else if (ir_right > IR_THRESHOLD) {
-    driver.set_speed_percentage(100);
-    driver.set_direction(LEFT);
+    direction = WIDE_LEFT;
   }
   else if (ir_left > IR_THRESHOLD) {
-    driver.set_speed_percentage(100);
-    driver.set_direction(RIGHT);
+    direction = WIDE_RIGHT;
   }
   else {
     ///////////////////////////////////////////////////////
     // Not in danger zone, search and target enemy with US
     ///////////////////////////////////////////////////////
+
+    speed = 85;
     
     uint8_t us_min = (front_distance > back_distance) ? back_distance : front_distance;
     bool search = (us_min < US_NEARBY_ENEMY) ? false : true; // Decide whether to skip or not search stage
@@ -119,16 +121,13 @@ void rockobot_think() {
     if (search) {
       switch (search_stage) {
         case 0 ... (TURN_CYCLES - 1):
-          driver.set_speed_percentage(85);
-          driver.set_direction(RIGHT);
+          direction = RIGHT;
           break;
         case TURN_CYCLES ... (2 * TURN_CYCLES):
-          driver.set_speed_percentage(85);
-          driver.set_direction(LEFT);
+          direction = LEFT;
           break;
         default:
-          driver.set_speed_percentage(85);
-          driver.set_direction(FORWARD);
+          direction = FORWARD;
       }
 
       search_stage++;
@@ -139,14 +138,19 @@ void rockobot_think() {
     // Target enemy
     ////////////////
 
-    driver.set_speed_percentage(85); // Not necessary to use full power
-
-    if (front_distance < back_distance) driver.set_direction(FORWARD);
-    else driver.set_direction(BACKWARD);
+    if (front_distance < back_distance) direction = FORWARD;
+    else direction = BACKWARD;
 
     // Activate max power if close enough
-    if (us_min < FULL_POWER_NEAR_ENEMY) driver.set_speed_percentage(100);
+    if (us_min < FULL_POWER_NEAR_ENEMY) speed = 100;
   }
+
+  ////////////////
+  // Finished thinking
+  ////////////////
+
+  driver.set_speed_percentage(speed);
+  driver.set_direction(direction);
 }
 
 void setup() {
