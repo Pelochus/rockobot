@@ -38,50 +38,52 @@ This section will focus on the printables and mechanics side of Rockobot
 ### Rockobot Core
 Here is a photo of the full design in Fusion 360. This only includes what was designed with Fusion, not any other mechanical component. There may be some minor differences, since the mounted has some manual adaptations that were later introduced properly to the design.
 
-![Full-Design]()
+**You can easily inspect the full design [here](https://a360.co/3mfHlEx)**
+
+![Full-Design](https://github.com/Pelochus/rockobot/blob/main/printables/images/rockobot-core.png)
 
 #### Fillable Base
 This was not used in final design, but its purpose was being filled with something dense and liquid/fluid so that the robot weigh could be changed easily.
 Our idea was to use sand, but it isn't a great idea mixing 3D prints (which are not totally sealed, due to the concept of layers) with something like sand. Also added complications with the infrarred sensors, so it was abandoned as an idea, but still present in the design.
 
-![Fillable-Base]()
+![Fillable-Base](https://github.com/Pelochus/rockobot/blob/main/printables/images/fillable-base.png)
 
 #### Motors Floor
 Biggest, most important 3D printed part of the whole design. Will need at least 280 g of plastic. The purpose of this floor is to connect the motor to the tracks, act as the bottom floor, includes the infrarred sensors and the slot for the battery. With everything set, it weighs not too far from a kilogram. There is a second slot for another battery, or for adding something heavy to add extra weight.
 
-![Motors-Floor]()
+![Motors-Floor](https://github.com/Pelochus/rockobot/blob/main/printables/images/motors-floor.png)
 
 #### Electronics Floor
 Second most important part, where almost all the electronics are located. This includes the PCB and the L298N motor driver, there are 2 slots, one for each. There are also some extra slots, intended for passing the wires through them. These are big because we wanted to save some material, reduce complexity in thinking how to properly distribute wires and easeness of installation.
 
-![Electronics-Floor]()
+![Electronics-Floor](https://github.com/Pelochus/rockobot/blob/main/printables/images/electronics-floor.png)
 
 #### Top Layer
 This layer serves only 3 purposes: decorative, sloting the power button and as a base for Rockins (explained below). The majority of shapes here are decorative and for saving some material.
 
-![Top-Layer]()
+![Top-Layer](https://github.com/Pelochus/rockobot/blob/main/printables/images/top-layer.png)
 
 #### Rockins
 The purpose of Rockins is to add a bit of modularity to Rockobot. In our case, we only added The Rock (Dwayne Johnson) head, who is the inspiration for the name of the robot. Rockins are made for adding some decorative pieces to the robot and changing them whenever you want, however, they can also be designed with some functionality, that's why we kept a big hole below in the Top Layer, to pass some wires through it, so we could also make a version with red LEDs in The Rock eyes.
 
-![Rockin-Rock]()
+![Rockin-Rock](https://github.com/Pelochus/rockobot/blob/main/printables/images/the-rock-rockin.png)
 
-![Rockin-SWAD]()
+![Rockin-SWAD](https://github.com/Pelochus/rockobot/blob/main/printables/images/swad-rockin.png)
 
 ### Rockobot Gearbox
 Designed as a separate part, included to the Core design. Due to having 2 versions, (one independent to the core, the other is the integration) the Fusion 360 design is slightly messy. We recommend looking at the Adapted-To-Core version, which is more updated. There are various gears, a cylinder which represents the motor and the actual gearbox.
 
-![GearBox-NoGears]()
+![GearBox-NoGears](https://github.com/Pelochus/rockobot/blob/main/printables/images/gearbox-nogears.png)
 
 ### Rockobot Shield
 Can be 3D printed, but it is designed to be done with a metal sheet and a laser cutter. The design includes some holes for screwing the US sensor, but we did not use them in the final design because it fitted exactly in the holes for the sensor. In Fusion we use 2 mm thickness, but we built it with 1 mm (we started getting to close to the 4 kg limit...) and also increased the curved ramp length a bit (about 20 mm). **Inox Steel 403** is the material used. Thanks to Pelochus' dad for actually doing this piece (we obviously did not have access to a laser cutter...). 
 
-![Rockobot-Shield]()
+![Rockobot-Shield](https://github.com/Pelochus/rockobot/blob/main/printables/images/shields.png)
 
 ### Outer Connector and Tracks
 Extracted from a FPV Rover Tank from Thingiverse ([thanks to the guy who designed and published it](https://www.thingiverse.com/thing:1240754)). Both the track, outer connector and cogs where oversized by about 130% from the original design. There are also heavy modifications to the outer connector to adapt it to our design. The design is basically a simplified version of a real tank, in which the cogs apply the forces to the tracks and the outer connector serves as a structure to keep it all connected.
 
-![OuterConnector-Tracks]()
+![OuterConnector-Tracks](https://github.com/Pelochus/rockobot/blob/main/printables/images/tracks.png)
 
 ## Enhancing 3D prints strength
 To enhance 3D prints strength, there are various techniques and slicer settings to adjust. These settings assume a **0.4 mm nozzle**, but it can be done with similarly sized nozzles. **Unless otherwise specified these are the common settings**:
@@ -118,7 +120,7 @@ that's why we decided to use threaded inserts, allowing better repairability and
 ### Motor reduction through gears
 Since we used two motors from an old VHS player, we had to reduce the speed of these. We incorporated a gearbox to the Motors Floor with various gears in it, achieving a **reduction of 80:1** (TODO, change to actual value, ask sharpplusplus). This way, we reduce our robot to a reasonable, controllable speed and we get **lots of extra torque**, which is critical for pushing (which is this robot's main purpose). The gearbox is adapted to both the Motors Floor, and to the Outer Connector and related pieces (the Main Cog that goes as the last gear was also from the guy who inspired our tracks).
 
-![GearBox implemented into the design]()
+![GearBox implemented into the design](https://github.com/Pelochus/rockobot/blob/main/printables/images/integrated-gearbox.png)
 
 ## Ideas
 Some ideas for future revisions:
