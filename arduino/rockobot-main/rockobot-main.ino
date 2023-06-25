@@ -53,17 +53,24 @@ uint8_t search_stage = 0;
 // Structure: 
 // First read values from sensor, then think what to do and send info to motors
 void rockobot_think() {
-  float front_distance = us_front.measureDistanceCm();
-  float back_distance = us_back.measureDistanceCm();
-  uint16_t ir_front = analogRead(IR_FRONT);
-  uint16_t ir_back = analogRead(IR_BACK);
-  uint16_t ir_right = analogRead(IR_RIGHT);
-  uint16_t ir_left = analogRead(IR_LEFT);
+  uint8_t front_distance = us_front.measureDistanceCm();
+  uint8_t back_distance = us_back.measureDistanceCm();
+  bool ir_front = analogRead(IR_FRONT) > IR_THRESHOLD;
+  bool ir_back = analogRead(IR_BACK) > IR_THRESHOLD;
+  bool ir_right = analogRead(IR_RIGHT) > IR_THRESHOLD;
+  bool ir_left = analogRead(IR_LEFT) > IR_THRESHOLD;
 
   //////////////////////////////////
   // Prioritise exiting danger zone
   //////////////////////////////////
-  if (ir_front > IR_THRESHOLD) {
+  
+  // Anti-ramp
+  if ((ir_front? 1:0) + (ir_back? 1:0) + (ir_right? 1:0) + 
+      (ir_left? 1:0) > 2) {
+    driver.set_speed_percentage(100);
+    driver.set_direction(RIGHT);
+  }
+  else if (ir_front > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
     driver.set_direction(BACKWARD);
 
@@ -91,16 +98,11 @@ void rockobot_think() {
   }
   else if (ir_right > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
-    driver.set_direction(LEFT);
-
-    driver.set_direction(FORWARD);
-
+    driver.set_direction(WIDE_LEFT);
   }
   else if (ir_left > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
-    driver.set_direction(RIGHT);
-
-    driver.set_direction(FORWARD);
+    driver.set_direction(WIDE_RIGHT);
   }
   else {
     ///////////////////////////////////////////////////////
