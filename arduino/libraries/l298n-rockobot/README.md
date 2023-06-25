@@ -9,7 +9,9 @@ enum direction_t {
 	FORWARD,
 	BACKWARD,
 	LEFT,
-	RIGHT
+	RIGHT,
+ 	WIDE_LEFT,
+  	WIDE_RIGHT
 };
 
 enum motor_t {
@@ -20,6 +22,7 @@ enum motor_t {
 ```
 
 ```motor_t``` does not need to be used outside the class, because the public functions always set both motors at once depending on the direction selected.
+```WIDE_LEFT``` and ```WIDE_RIGHT``` turn off one motor so rotation is in a wider circle instead of in its own center
 
 ## Constructor
 Very simple stuff, just call it with the corresponding Arduino pins for each L298N driver input
@@ -34,11 +37,13 @@ For the v1.0 PCB it's this order (respectively):
 They do what their name say, so the first one returns a ```direction_t``` with the current direction. 
 The other two return the current speed in two forms: range 0-255 (8 bit value, because PWM is 8 bit) and range 0-100% for the percentage version
 ```c++
-direction_t current_direction() const;
+direction_t get_direction() const;
 
-uint8_t current_speed() const;
+uint8_t get_speed() const;
 
-uint8_t current_speed_percentage() const;
+uint8_t get_speed_percentage() const;
+
+bool is_in_fast_stop() const;
 ```
 ## Setters
 Exactly the same as the getters but setters. The ```set_direction()``` function sets the robot direction, NOT the motors. 
@@ -49,4 +54,6 @@ void set_speed(const uint8_t new_speed);
 void set_speed_percentage(uint8_t new_speed);
 
 void set_direction(const direction_t new_direction);
+
+void fast_stop();
 ```
