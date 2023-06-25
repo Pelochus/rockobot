@@ -21,17 +21,22 @@ L298N_Rockobot::L298N_Rockobot(uint8_t ena, uint8_t enb, uint8_t in1, uint8_t in
 	set_direction(FORWARD);
 }
 
-direction_t L298N_Rockobot::current_direction() const {
+direction_t L298N_Rockobot::get_direction() const {
 	return this->direction;
 }
 
-uint8_t L298N_Rockobot::current_speed() const {
-	return this->speed;
+uint8_t L298N_Rockobot::get_speed() const {
+	if (in_fast_stop) return 0;
+	else return this->speed;
 }
 
-uint8_t L298N_Rockobot::current_speed_percentage() const {
+uint8_t L298N_Rockobot::get_speed_percentage() const {
 	// Converts from 8 bit integer to percentage
 	return map(this->speed, 0, 255, 0, 100);
+}
+
+bool L298N_Rockobot::is_in_fast_stop() const {
+	return in_fast_stop;
 }
 
 void L298N_Rockobot::set_speed(const uint8_t new_speed) {
@@ -39,6 +44,9 @@ void L298N_Rockobot::set_speed(const uint8_t new_speed) {
 	
 	analogWrite(ENA, speed);
 	analogWrite(ENB, speed);
+	in_fast_stop = false;
+	
+	set_direction(get_direction());
 }
 
 void L298N_Rockobot::set_speed_percentage(uint8_t new_speed) {
@@ -50,7 +58,25 @@ void L298N_Rockobot::set_speed_percentage(uint8_t new_speed) {
 
 void L298N_Rockobot::set_direction(const direction_t new_direction) {
 	direction = new_direction;
+	
+	if (in_fast_stop) {
+		analogWrite(ENA, speed);
+		analogWrite(ENB, speed);
+		in_fast_stop = false;
+	}
+	
 	set_motor_direction(BOTH, direction);
+}
+
+void L298N_Rockobot::fast_stop() {
+	in_fast_stop = true;
+	
+	digitalWrite(IN1, LOW);
+	digitalWrite(IN2, LOW);
+	digitalWrite(ENA, HIGH);
+	digitalWrite(IN3, LOW);
+	digitalWrite(IN4, LOW);
+	digitalWrite(ENB, HIGH);
 }
 
 // Private function, users should not be able to change directions of each single motor
@@ -59,8 +85,7 @@ void L298N_Rockobot::set_motor_direction(const motor_t motor, const direction_t 
 		set_motor_direction(LMOTOR, new_direction);
 		set_motor_direction(RMOTOR, new_direction);
 	}
-	// TODO VERY IMPORTANT. Check if LMOTOR corresponds to IN1/2 and RMOTOR with IN3/4
-	// Also check if HIGH/LOW values are set correctly
+
 	else if (motor == LMOTOR) {
 		// Makes left motor go forward
 		if (new_direction == FORWARD || new_direction == RIGHT) {
