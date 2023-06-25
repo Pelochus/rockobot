@@ -16,7 +16,7 @@ enum direction_t {
 	RIGHT,
 	WIDE_LEFT,
 	WIDE_RIGHT, 
-    FAST_STOP
+	FAST_STOP
 };
 
 class L298N_Rockobot {
@@ -28,7 +28,6 @@ private:
 	const uint8_t IN2;
 	const uint8_t IN3;
 	const uint8_t IN4;
-	bool in_fast_stop = false;
 	uint8_t speed = 255; // Max speed, equals 100%
 	direction_t direction = FORWARD; // Default direction is forward
 	
