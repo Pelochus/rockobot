@@ -26,8 +26,7 @@ direction_t L298N_Rockobot::get_direction() const {
 }
 
 uint8_t L298N_Rockobot::get_speed() const {
-	if (in_fast_stop) return 0;
-	else return this->speed;
+	return this->speed;
 }
 
 uint8_t L298N_Rockobot::get_speed_percentage() const {
@@ -46,7 +45,6 @@ void L298N_Rockobot::set_speed_percentage(uint8_t new_speed) {
 	// Convert percentage to 8 bit integer
 	set_speed(map(new_speed, 0, 100, 0, 255));
 }
-
 
 // Private function, users should not be able to change directions of each single motor
 void L298N_Rockobot::set_direction(const direction_t new_direction) const {
