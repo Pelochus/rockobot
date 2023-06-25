@@ -87,14 +87,11 @@ void L298N_Rockobot::set_motor_direction(const motor_t motor, const direction_t 
 	}
 
 	else if (motor == LMOTOR) {
-		if (new_direction == WIDE_RIGHT)
-			digitalWrite(ENB, LOW); 	// Left motor off
-		else {
-			analogWrite(ENB, speed);
-		}
+		if (new_direction == WIDE_RIGHT) digitalWrite(ENB, LOW); // Left motor off
+		else analogWrite(ENB, speed); // Recover speed if we coming back from a WIDE turn
 		
 		// Makes left motor go forward
-		if (new_direction == FORWARD || new_direction == RIGHT || new_direction == WIDE_RIGHT) {
+		if (new_direction == FORWARD || new_direction == RIGHT || new_direction == WIDE_LEFT) {
 			digitalWrite(IN1, HIGH);
 			digitalWrite(IN2, LOW);
 		}
@@ -104,14 +101,11 @@ void L298N_Rockobot::set_motor_direction(const motor_t motor, const direction_t 
 		}
 	}
 	else {
-		if (new_direction == WIDE_LEFT)
-			digitalWrite(ENA, LOW); 	// RIGHT motor off
-		else {
-			analogWrite(ENA, speed);
-		}
+		if (new_direction == WIDE_LEFT) digitalWrite(ENA, LOW); // Right motor off
+		else analogWrite(ENA, speed); // Recover speed if we coming back from a WIDE turn
 			
 		// Makes right motor go forward
-		if (new_direction == FORWARD || new_direction == LEFT || new_direction == WIDE_LEFT) {
+		if (new_direction == FORWARD || new_direction == LEFT || new_direction == WIDE_RIGHT) {
 			digitalWrite(IN3, LOW);
 			digitalWrite(IN4, HIGH);
 		}
