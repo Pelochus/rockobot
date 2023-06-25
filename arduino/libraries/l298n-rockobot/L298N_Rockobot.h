@@ -15,13 +15,8 @@ enum direction_t {
 	LEFT,
 	RIGHT,
 	WIDE_LEFT,
-	WIDE_RIGHT
-};
-
-enum motor_t {
-	LMOTOR,
-	RMOTOR,
-	BOTH
+	WIDE_RIGHT, 
+    FAST_STOP
 };
 
 class L298N_Rockobot {
@@ -36,13 +31,6 @@ private:
 	bool in_fast_stop = false;
 	uint8_t speed = 255; // Max speed, equals 100%
 	direction_t direction = FORWARD; // Default direction is forward
-	
-	/**
-     * @brief Sets direction for motor L or R
-     * @param motor, selects which motor, can be both
-     * @param new_direction, selects which direction to be applied
-     */
-	void set_motor_direction(const motor_t motor, const direction_t new_direction) const;
 	
 public:
 
@@ -71,12 +59,6 @@ public:
      * @returns uint8_t with current speed
      */
     uint8_t get_speed_percentage() const;
-    
-    /**
-     * @brief Returns true if motors are in fast stop
-     * @returns bool
-     */
-    bool is_in_fast_stop() const;
 	
 	/**
      * @brief Sets new speed
@@ -98,13 +80,6 @@ public:
      * @note sets speed to previous speed if called after fast_stop
      */
     void set_direction(const direction_t new_direction);
-    
-    /**
-     * @brief Stops actively shorting the motor, fast stopping at a high speed can cause
-     * damage to the motor or estructural integrity of the device
-	 * @param new_direction, entered via enum direction_t
-     */
-    void fast_stop();
 };
 
 #endif // L298N_ROCKOBOT_H
