@@ -47,7 +47,7 @@ void L298N_Rockobot::set_speed_percentage(uint8_t new_speed) {
 }
 
 // Private function, users should not be able to change directions of each single motor
-void L298N_Rockobot::set_direction(const direction_t new_direction) const {
+void L298N_Rockobot::set_direction(const direction_t new_direction) {
 	direction = new_direction;
 	
 	switch (new_direction) {
