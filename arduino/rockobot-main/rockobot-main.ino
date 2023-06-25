@@ -35,7 +35,7 @@
 
 UltraSonicDistanceSensor us_front(TRIGGER, ECHO_FRONT, MAX_DISTANCE);
 UltraSonicDistanceSensor us_back(TRIGGER, ECHO_BACK, MAX_DISTANCE);
-L298N_Rockobot motor_driver(ENA, ENB, IN1, IN2, IN3, IN4);
+L298N_Rockobot driver(ENA, ENB, IN1, IN2, IN3, IN4);
 
 // Structure: 
 // First read values from sensor, then think what to do and send info to motors
@@ -53,41 +53,43 @@ void rockobot_think() {
   // Prioritise exiting danger zone
   //////////////////////////////////
   if (ir_front > IR_THRESHOLD) {
-    motor_driver.set_speed_percentage(100);
-    motor_driver.set_direction(BACKWARD);
+    driver.set_speed_percentage(100);
+    driver.set_direction(BACKWARD);
   }
   else if (ir_back > IR_THRESHOLD) {
-    motor_driver.set_speed_percentage(100);
-    motor_driver.set_direction(FORWARD);
+    driver.set_speed_percentage(100);
+    driver.set_direction(FORWARD);
   }
   else if (ir_right > IR_THRESHOLD) {
-    motor_driver.set_speed_percentage(100);
-    motor_driver.set_direction(LEFT);
+    driver.set_speed_percentage(100);
+    driver.set_direction(LEFT);
 
+    // TODO remove since every void loop() it will repeat itself anyway?
     // Rotate while IR detects the black line
     while (ir_right > IR_THRESHOLD) {
       ir_right = analogRead(IR_RIGHT);
     }
 
-    motor_driver.set_direction(FORWARD);
+    driver.set_direction(FORWARD);
   }
   else if (ir_left > IR_THRESHOLD) {
-    motor_driver.set_speed_percentage(100);
-    motor_driver.set_direction(RIGHT);
+    driver.set_speed_percentage(100);
+    driver.set_direction(RIGHT);
 
+    // TODO remove since every void loop() it will repeat itself anyway?
     // Rotate while IR detects the black line
     while (ir_left > IR_THRESHOLD) {
       ir_left = analogRead(IR_LEFT);
     }
 
-    motor_driver.set_direction(FORWARD);
+    driver.set_direction(FORWARD);
   }
   else {
     ///////////////////////////////////////////////////////
     // Not in danger zone, search and target enemy with US
     ///////////////////////////////////////////////////////
     
-    const uint8_t US_NEARBY_ENEMY = 75; // When is considered to be near an enemy (cm)
+    const uint8_t US_NEARBY_ENEMY = 50; // When is considered to be near an enemy (cm)
     const uint8_t FULL_POWER_NEAR_ENEMY = 25;
     uint8_t us_min = (front_distance > back_distance) ? back_distance : front_distance;
     bool search = (us_min < US_NEARBY_ENEMY) ? false : true; // Decide whether to skip or not search stage
@@ -102,8 +104,8 @@ void rockobot_think() {
 
     uint8_t loop_exit = 0;
     while (search && loop_exit > LOOP_ITERATIONS) {
-      motor_driver.set_speed_percentage(65);
-      motor_driver.set_direction(RIGHT); // Could be left, indifferent
+      driver.set_speed_percentage(65);
+      driver.set_direction(RIGHT); // Could be left, indifferent
 
       front_distance = us_front.measureDistanceCm();
       back_distance = us_back.measureDistanceCm();
@@ -119,13 +121,13 @@ void rockobot_think() {
     // Target enemy
     ////////////////
 
-    motor_driver.set_speed_percentage(80); // Not necessary to use full power
+    driver.set_speed_percentage(80); // Not necessary to use full power
 
-    if (front_distance < back_distance) motor_driver.set_direction(FORWARD);
-    else motor_driver.set_direction(BACKWARD);
+    if (front_distance < back_distance) driver.set_direction(FORWARD);
+    else driver.set_direction(BACKWARD);
 
     // Activate max power if close enough
-    if (us_min < FULL_POWER_NEAR_ENEMY) motor_driver.set_speed_percentage(100);
+    if (us_min < FULL_POWER_NEAR_ENEMY) driver.set_speed_percentage(100);
   }
 }
 
@@ -138,7 +140,7 @@ void setup() {
 
   Serial.begin(9600); // Remove in final version
 
-  motor_driver.set_speed_percentage(0);
+  driver.set_speed_percentage(0);
   delay(STARTUP_DELAY); // Mandatory delay for official competition
 }
 
@@ -146,24 +148,51 @@ void loop() {
   //rockobot_think();
 
   // SECCION DE PRUEBAS, BORRAR CUANDO NO SEA NECESARIO
-  /*
-  Serial.println(motor_driver.current_speed());
-  Serial.println(motor_driver.current_speed_percentage());
-
-  if (motor_driver.current_speed_percentage() == 0) motor_driver.set_speed_percentage(100);
-  motor_driver.set_speed_percentage(motor_driver.current_speed_percentage() - 1);
-  */
 
   // Serial.println(us_front.measureDistanceCm());
 
-  motor_driver.set_speed_percentage(60);
-  motor_driver.set_direction(BACKWARD);
-
-  delay(2000);
-
-  motor_driver.set_speed_percentage(0);
-  
+  driver.set_direction(BACKWARD);
+  driver.set_speed_percentage(100);
   delay(5000);
+  driver.set_speed_percentage(0);
+  delay(3000);
 
+/*
+  delay(500);
+
+  driver.set_speed_percentage(75);
+
+  while(true) {
+    while(analogRead(IR_FRONT) < 300) {} // Wait till we detect black line
+
+    driver.set_speed_percentage(0);
+    delay(500);
+    driver.set_direction(RIGHT);
+    driver.set_speed_percentage(80);
+    delay(2000);
+    driver.set_speed_percentage(0);
+    delay(500);
+    driver.set_direction(FORWARD);
+    driver.set_speed_percentage(75);
+
+    while(analogRead(IR_FRONT) < 300) {}
+
+    driver.set_speed_percentage(0);
+    delay(500);
+    driver.set_direction(LEFT);
+    driver.set_speed_percentage(80);
+    delay(2000);
+    driver.set_speed_percentage(0);
+    delay(500);
+    driver.set_direction(BACKWARD);
+    driver.set_speed_percentage(75);
+
+  }
+  
+  driver.set_speed_percentage(0);
+
+  delay(10000);
+  */
+  
   delay(ACTION_DELAY);
 }
