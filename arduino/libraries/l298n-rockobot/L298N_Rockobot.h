@@ -14,8 +14,8 @@ enum direction_t {
 	BACKWARD,
 	LEFT,
 	RIGHT,
-    WIDE_LEFT,
-    WIDE_RIGHT
+	WIDE_LEFT,
+	WIDE_RIGHT
 };
 
 enum motor_t {
