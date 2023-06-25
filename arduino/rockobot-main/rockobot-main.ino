@@ -6,7 +6,7 @@
   *
   * Authors:
   *   Pelochus
-  *   sharplusplus
+  *   Jose-HH
 */
 
 #include <HCSR04.h> // RCWL-1601 is compatible
@@ -37,13 +37,23 @@ UltraSonicDistanceSensor us_front(TRIGGER, ECHO_FRONT, MAX_DISTANCE);
 UltraSonicDistanceSensor us_back(TRIGGER, ECHO_BACK, MAX_DISTANCE);
 L298N_Rockobot driver(ENA, ENB, IN1, IN2, IN3, IN4);
 
+uint8_t front_c = 0;
+uint8_t back_c = 0;
+uint8_t search_stage = 0;
+
+const uint16_t IR_THRESHOLD = 300; // If higher than this, we are entering danger zone (out of ring)
+const uint8_t STUCK_COUNT = 40;
+//TODO
+const uint8_t TURN_CYCLES = 22;
+const uint8_t US_NEARBY_ENEMY = 40; // When is considered to be near an enemy (cm)
+const uint8_t FULL_POWER_NEAR_ENEMY = 20;
+
+
 // Structure: 
 // First read values from sensor, then think what to do and send info to motors
 void rockobot_think() {
-  const uint16_t IR_THRESHOLD = 300; // If higher than this, we are entering danger zone (out of ring)
-
-  uint8_t front_distance = us_front.measureDistanceCm();
-  uint8_t back_distance = us_back.measureDistanceCm();
+  float front_distance = us_front.measureDistanceCm();
+  float back_distance = us_back.measureDistanceCm();
   uint16_t ir_front = analogRead(IR_FRONT);
   uint16_t ir_back = analogRead(IR_BACK);
   uint16_t ir_right = analogRead(IR_RIGHT);
@@ -55,32 +65,39 @@ void rockobot_think() {
   if (ir_front > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
     driver.set_direction(BACKWARD);
+
+    if (front_c > STUCK_COUNT) {
+      driver.set_speed_percentage(100);
+      driver.set_direction(RIGHT);
+      front_c /= 2; 
+    }
+    
+    front_c++;
+    back_c = 0;
   }
   else if (ir_back > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
     driver.set_direction(FORWARD);
+
+    if (back_c > STUCK_COUNT) {
+      driver.set_speed_percentage(100);
+      driver.set_direction(RIGHT);
+      back_c /= 2; 
+    }
+
+    front_c = 0;
+    back_c++;
   }
   else if (ir_right > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
     driver.set_direction(LEFT);
 
-    // TODO remove since every void loop() it will repeat itself anyway?
-    // Rotate while IR detects the black line
-    while (ir_right > IR_THRESHOLD) {
-      ir_right = analogRead(IR_RIGHT);
-    }
-
     driver.set_direction(FORWARD);
+
   }
   else if (ir_left > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
     driver.set_direction(RIGHT);
-
-    // TODO remove since every void loop() it will repeat itself anyway?
-    // Rotate while IR detects the black line
-    while (ir_left > IR_THRESHOLD) {
-      ir_left = analogRead(IR_LEFT);
-    }
 
     driver.set_direction(FORWARD);
   }
@@ -89,32 +106,30 @@ void rockobot_think() {
     // Not in danger zone, search and target enemy with US
     ///////////////////////////////////////////////////////
     
-    const uint8_t US_NEARBY_ENEMY = 50; // When is considered to be near an enemy (cm)
-    const uint8_t FULL_POWER_NEAR_ENEMY = 25;
     uint8_t us_min = (front_distance > back_distance) ? back_distance : front_distance;
     bool search = (us_min < US_NEARBY_ENEMY) ? false : true; // Decide whether to skip or not search stage
 
     //////////
     // Search
     //////////
+    
+    if (search) {
+      switch (search_stage) {
+        case 0 ... TURN_CYCLES-1:
+          driver.set_speed_percentage(70);
+          driver.set_direction(RIGHT);
+          break;
+        case TURN_CYCLES ... 2*TURN_CYCLES:
+          driver.set_speed_percentage(70);
+          driver.set_direction(LEFT);
+          break;
+        default:
+          driver.set_speed_percentage(70);
+          driver.set_direction(FORWARD);
+      }
 
-    // Complete loop will last LOOP_ITERATIONS * LOOP_DURATION milliseconds
-    const uint8_t LOOP_ITERATIONS = 10;
-    const uint8_t LOOP_DURATION = 25;
-
-    uint8_t loop_exit = 0;
-    while (search && loop_exit > LOOP_ITERATIONS) {
-      driver.set_speed_percentage(65);
-      driver.set_direction(RIGHT); // Could be left, indifferent
-
-      front_distance = us_front.measureDistanceCm();
-      back_distance = us_back.measureDistanceCm();
-
-      us_min = (front_distance > back_distance) ? back_distance : front_distance;
-      search = (us_min < US_NEARBY_ENEMY) ? false : true;
-      loop_exit++;
-
-      delay(LOOP_DURATION);
+      search_stage++;
+      search_stage %= 3*TURN_CYCLES;
     }
 
     ////////////////
