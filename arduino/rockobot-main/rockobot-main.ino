@@ -37,10 +37,10 @@ UltraSonicDistanceSensor us_front(TRIGGER, ECHO_FRONT, MAX_DISTANCE);
 UltraSonicDistanceSensor us_back(TRIGGER, ECHO_BACK, MAX_DISTANCE);
 L298N_Rockobot driver(ENA, ENB, IN1, IN2, IN3, IN4);
 
-const uint16_t FULL_POWER_THRESHOLD = 10000; // After 10 seconds, always use full power
-const uint16_t IR_THRESHOLD = 300; // If higher than this, we are entering danger zone (out of ring)
-const uint8_t US_NEARBY_ENEMY = 45; // When is considered to be near an enemy (cm)
-const uint8_t FULL_POWER_NEAR_ENEMY = 15; // When under this value in cm, activate maximum speed
+const uint16_t FULL_POWER_THRESHOLD = 8000; // After 8 seconds, always use full power
+const uint16_t IR_THRESHOLD = 350; // If higher than this, we are entering danger zone (out of ring)
+const uint8_t US_NEARBY_ENEMY = 30; // When is considered to be near an enemy (cm)
+const uint8_t FULL_POWER_NEAR_ENEMY = 10; // When under this value in cm, activate maximum speed
 const uint8_t STUCK_COUNT = 50; // If we reach 50 loops detecting black lines, we are stuck
 const uint8_t TURN_CYCLES = 14; // Loops (ACTION_DELAY = 50 ms) required for 90º rotation at 100% speed (We calculated 700 ms 90 deg at 16.7V battery)
 
@@ -65,8 +65,8 @@ void rockobot_think() {
   //////////////////////////////////
   
   // Anti-ramp
-  if ((ir_front? 1:0) + (ir_back? 1:0) + (ir_right? 1:0) + 
-      (ir_left? 1:0) > 2) {
+  if ((ir_front ? 1 : 0) + (ir_back ? 1 : 0) + 
+      (ir_right ? 1 : 0) + (ir_left ? 1 : 0) > 2) {
     driver.set_speed_percentage(100);
     driver.set_direction(RIGHT);
   }
@@ -98,11 +98,11 @@ void rockobot_think() {
   }
   else if (ir_right > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
-    driver.set_direction(WIDE_LEFT);
+    driver.set_direction(LEFT);
   }
   else if (ir_left > IR_THRESHOLD) {
     driver.set_speed_percentage(100);
-    driver.set_direction(WIDE_RIGHT);
+    driver.set_direction(RIGHT);
   }
   else {
     ///////////////////////////////////////////////////////
@@ -155,6 +155,8 @@ void setup() {
   pinMode(IR_BACK, INPUT);
   pinMode(IR_RIGHT, INPUT);
   pinMode(IR_LEFT, INPUT);
+
+  Serial.begin(9600);
 
   driver.set_speed_percentage(0);
   delay(STARTUP_DELAY); // Mandatory delay for official competition
