@@ -118,7 +118,7 @@ that's why we decided to use threaded inserts, allowing better repairability and
 
 ## Mechanical designs
 ### Motor reduction through gears
-Since we used two motors from an old VHS player, we had to reduce the speed of these. We incorporated a gearbox to the Motors Floor with various gears in it, achieving a **reduction of 80:1** (TODO, change to actual value, ask sharpplusplus). This way, we reduce our robot to a reasonable, controllable speed and we get **lots of extra torque**, which is critical for pushing (which is this robot's main purpose). The gearbox is adapted to both the Motors Floor, and to the Outer Connector and related pieces (the Main Cog that goes as the last gear was also from the guy who inspired our tracks).
+Since we used two motors from an old VHS player, we had to reduce the speed of these. We incorporated a gearbox to the Motors Floor with various gears in it, achieving a **reduction of 85,75:1** (3.5<sup>3</sup> x 2). This way, we reduce our robot to a reasonable, controllable speed and we get **lots of extra torque**, which is critical for pushing (which is this robot's main purpose). The gearbox is adapted to both the Motors Floor, and to the Outer Connector and related pieces (the Main Cog that goes as the last gear was also from the guy who inspired our tracks).
 
 ![GearBox implemented into the design](https://github.com/Pelochus/rockobot/blob/main/printables/images/integrated-gearbox.png)
 
@@ -126,7 +126,7 @@ Since we used two motors from an old VHS player, we had to reduce the speed of t
 Some ideas for future revisions:
 - Think about an easy way of adding weigh to the robot. This is in order to get as close as possible to the 4kg limit, without surpassing it before final design
 - Reduce the number of screws and reduce the variety between them, for example, change the frontal MC to M3, to be the same as the back ones (or viceversa)
-- Use more PETG and/or ABS/ASA
+- Use more PETG and/or ABS/ASA. PETG is better for parts that require some give, flexibility and reduced friction (floors, guides). ABS/ASA is recommended for parts that need to be impact and heat resistant (gears, outer connectors). PETG has better layer adhesion.
 - Redesign from zero if want lots of changes, because some sketches and other Fusion features are a bit messy
 - Use more parametric dimensions
 - Improve structure and think how to reduce filamente use along the way
