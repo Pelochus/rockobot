@@ -29,20 +29,21 @@
 #define IR_LEFT A2
 #define IR_FRONT A3
 
-#define MAX_DISTANCE 200 // Adapt to ring max dimension
-#define ACTION_DELAY 50 // Delay in ms between one full loop and next loop
-#define STARTUP_DELAY 3000 // 3 seconds mandatory delay for competition
-
-UltraSonicDistanceSensor us_front(TRIGGER, ECHO_FRONT, MAX_DISTANCE);
-UltraSonicDistanceSensor us_back(TRIGGER, ECHO_BACK, MAX_DISTANCE);
-L298N_Rockobot driver(ENA, ENB, IN1, IN2, IN3, IN4);
-
+// General constants
 const uint16_t FULL_POWER_THRESHOLD = 8000; // After 8 seconds, always use full power
+const uint16_t STARTUP_DELAY = 3000; // 3 seconds mandatory delay for competition
+const uint8_t ACTION_DELAY = 50; // Delay in ms between one full loop and next loop
+
+// IR and danger zone related constatns
 const uint16_t IR_THRESHOLD = 300; // If higher than this, we are entering danger zone (out of ring)
-const uint8_t US_NEARBY_ENEMY = 30; // When is considered to be near an enemy (cm)
-const uint8_t FULL_POWER_NEAR_ENEMY = 10; // When under this value in cm, activate maximum speed
-const uint8_t STUCK_COUNT = 50; // If we reach 50 loops detecting black lines, we are stuck
-const uint8_t TURN_CYCLES = 700 / ACTION_DELAY; // Loops required for 90º rotation at 100% speed (We calculated 700 ms 90 deg at 16.7V battery)
+const uint8_t STUCK_COUNT = 25; // If we reach STUCK_COUNT loops detecting black lines, we are stuck, change direction
+const uint8_t TURN_CYCLES = 700 / ACTION_DELAY + 1; // Loops required for 90º rotation at 100% speed (We calculated 700 ms 90 deg at 16.7V battery)
+
+// US and Search related constants (values in cm)
+const uint8_t DIRECTION_CHANGE_THRESHOLD = 5; // If difference between sensors is higher than this, change direction while searching
+const uint8_t US_NEARBY_ENEMY = 30;
+const uint8_t FULL_POWER_NEAR_ENEMY = 12;
+const uint8_t MAX_DISTANCE = 150; // Ring dimensions = 160 x 65. Diagonal distance = 170 mm
 
 uint16_t extra_delay = 0;
 uint16_t initial_time = 0;
@@ -50,6 +51,10 @@ uint16_t current_time = 0;
 uint8_t front_counter = 0;
 uint8_t back_counter = 0;
 uint8_t search_stage = 0;
+
+UltraSonicDistanceSensor us_front(TRIGGER, ECHO_FRONT, MAX_DISTANCE);
+UltraSonicDistanceSensor us_back(TRIGGER, ECHO_BACK, MAX_DISTANCE);
+L298N_Rockobot driver(ENA, ENB, IN1, IN2, IN3, IN4);
 
 // Structure: 
 // First read values from sensor, then think what to do and send info to motors
@@ -112,11 +117,11 @@ void rockobot_think() {
     ///////////////////////////////////////////////////////
     // Not in danger zone, search and target enemy with US
     ///////////////////////////////////////////////////////
-    extra_delay = 0; // Reset delay if not in danger (black lines)
-    direction = FORWARD;
-    speed = 85;
+    extra_delay = 0; // Reset delay if not in danger
+    speed = 80;
     
-    uint8_t us_min = (front_distance > back_distance) ? back_distance : front_distance;
+    int16_t us_diff = front_distance - back_distance; // If negative, back_distance is farther from something and viceversa
+    uint8_t us_min = (front_distance < back_distance) ? front_distance : back_distance;
     bool search = us_min > US_NEARBY_ENEMY; // Decide whether to skip or not search stage
 
     //////////
@@ -128,7 +133,7 @@ void rockobot_think() {
         case 0 ... (TURN_CYCLES - 1):
           direction = RIGHT;
           break;
-        case TURN_CYCLES ... (2 * TURN_CYCLES):
+        case 2 * TURN_CYCLES ... (3 * TURN_CYCLES):
           direction = LEFT;
           break;
         default:
@@ -136,15 +141,18 @@ void rockobot_think() {
       }
 
       search_stage++;
-      search_stage %= 3 * TURN_CYCLES;
+      search_stage %= 4 * TURN_CYCLES;
     }
 
     ////////////////
     // Target enemy
     ////////////////
 
-    if (front_distance < back_distance) direction = FORWARD;
-    else direction = BACKWARD;
+    if (abs(us_diff) > DIRECTION_CHANGE_THRESHOLD && us_min < US_NEARBY_ENEMY) {
+      if (us_diff > 0) direction = BACKWARD;
+      else if (us_diff < 0) direction = FORWARD;
+      // else will retain current direction
+    }
 
     // Activate max power if close enough
     if (us_min < FULL_POWER_NEAR_ENEMY) speed = 100;
