@@ -2,7 +2,7 @@
 This README will briefly explain the what the functions of the library for controlling Rockobot's motors. All of them are very simple, so we will only take a look at each function and what they do, not how they are programmed
 
 ## enums
-We have created two enums for simplifying code reading, one for setting the direction of the robot and one for referring to a specific motor (or both):
+We have created one enum for setting which direction should the robot go:
 
 ```c++
 enum direction_t {
@@ -10,19 +10,13 @@ enum direction_t {
 	BACKWARD,
 	LEFT,
 	RIGHT,
- 	WIDE_LEFT,
-  	WIDE_RIGHT
-};
-
-enum motor_t {
-	LMOTOR,
-	RMOTOR,
-	BOTH
+	WIDE_LEFT,
+	WIDE_RIGHT,
+	FAST_STOP
 };
 ```
 
-```motor_t``` does not need to be used outside the class, because the public functions always set both motors at once depending on the direction selected.
-```WIDE_LEFT``` and ```WIDE_RIGHT``` turn off one motor so rotation is in a wider circle instead of in its own center
+```WIDE_LEFT``` and ```WIDE_RIGHT``` turn off one motor so rotation is in a wider circle instead of in its own center. ```FAST_STOP``` shortcircuits the motors so that they act as a brake.
 
 ## Constructor
 Very simple stuff, just call it with the corresponding Arduino pins for each L298N driver input
@@ -42,8 +36,6 @@ direction_t get_direction() const;
 uint8_t get_speed() const;
 
 uint8_t get_speed_percentage() const;
-
-bool is_in_fast_stop() const;
 ```
 ## Setters
 Exactly the same as the getters but setters. The ```set_direction()``` function sets the robot direction, NOT the motors. 
@@ -54,6 +46,4 @@ void set_speed(const uint8_t new_speed);
 void set_speed_percentage(uint8_t new_speed);
 
 void set_direction(const direction_t new_direction);
-
-void fast_stop();
 ```

@@ -1,5 +1,6 @@
 # Printables and Mechanics
-This section will focus on the printables and mechanics side of Rockobot
+This section will focus on the printables and mechanics sides of Rockobot<br>
+If you want the STLs files or CAD files click this [link for STLs](https://github.com/Pelochus/rockobot/tree/main/printables/stl) or this [one for Fusion 360 files](https://github.com/Pelochus/rockobot/tree/main/printables/fusion360)
 
 ## Components
 
@@ -30,7 +31,7 @@ This section will focus on the printables and mechanics side of Rockobot
 - Make it near as big as the limit (350x350 mm)
 - Low center of gravity, high stability
 - Good traction, no slippery wheels
-- High Torque, speed is not that important
+- High Torque, speed is not important
 - High resistance parts, intelligently print parts as durable as possible (high temps, low speeds, better materials, intelligent designs)
 - Intelligently design parts for durability
 
