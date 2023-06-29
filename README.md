@@ -1,7 +1,7 @@
 # Rockobot
 Battlebot made for SMP subject in Computer Engineering, UGR. This subject focuses on learning microcontrollers and embedded systems, with Arduino especifically. In order to properly learn an actual use case for embedded systems, we have to build a battlebot and make it compete with our classmates' counterparts in a tournament. Personally, we wanted to take the chance to learn a bit more of what was taught in class, so we learned both Fusion 360 and KiCad in order to improve the performance and originality of our robot, adding custom 3D printed parts and a self-designed PCB. Here we have a photo of the final assembly:
 
-[RockobotV1]()
+[RockobotV1](https://github.com/Pelochus/rockobot/blob/main/extras/images/Rockobot1.jpg)
 
 This repository contains information about the mechanics, electronics and programming of the robot along with parts lists, tools used, future ideas and a knowledge database. This README serves as an index for each subsection (Mechanics/Printables, Electronics and Programming) and for some generic stuff. For detailed information, see the READMEs for each subsection:
 
