@@ -50,6 +50,4 @@ TODO PUT THE LINK ONCE IT IS UPLOADED
 As you can see, Rockobot has Dwayne "The Rock" Johnson head in it. The reason behind this was due to the 3D printing community having a weird obsession with putting The Rock's head on everything they printed and, since we both knew that, we joined our fellow 3D printing enthusiasts in adding The Rock's head everywhere.
 
 ## TODO
-- Add the following subsections:
-  - printables/fusion360
-  - printables/stl
+- Everything is finished! Only need to do a improved version
