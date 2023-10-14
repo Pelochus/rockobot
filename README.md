@@ -10,7 +10,7 @@ This repository contains information about the mechanics, electronics and progra
 - [Arduino/Software](https://github.com/Pelochus/rockobot/tree/main/arduino/)
 
 ## Arduino Blog
-We were featured in the official Arduino blog! Check this [link](https://blog.arduino.cc/2023/09/29/can-you-smell-what-the-rockobot-is-cooking/?utm_source=segment&utm_medium=newsletter&utm_campaign=blog)!
+We were featured in the official Arduino blog! Check this [link](https://blog.arduino.cc/2023/09/29/can-you-smell-what-the-rockobot-is-cooking/)!
 
 ## Tournament Results
 **Rockobot won 5 matches and tied one!**. Our battlebot achieved the best result of our class, essentially winning the tournament (there were 17 robots including ours, but each one only had to participate in 6 matches). Additionally, we got a 10/10 from our classmates votes. The final mark for Rockobot was a 9.92 out of 10. Here is a video of the full competition:
